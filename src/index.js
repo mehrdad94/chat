@@ -1,12 +1,33 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import 'popper.js'
+import 'bootstrap'
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import React from 'react'
+import { hydrate, render } from 'react-dom'
+import { PersistGate } from 'redux-persist/integration/react'
+import { Provider } from 'react-redux'
+import { store, persistor } from './redux/store'
+import { Loader } from './components/Loader/Loader'
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+import './index.css'
+import App from './App'
+import * as serviceWorker from './serviceWorker'
+import './styles/index.scss'
+
+const ActiveLoader = () => <Loader active={true}/>
+
+const rootElement = document.getElementById('root')
+const RenderContent = () => (
+  <Provider store={store}>
+    <PersistGate loading={<ActiveLoader/>} persistor={persistor}>
+      <App />
+    </PersistGate>
+  </Provider>
+)
+
+if (rootElement.hasChildNodes()) {
+  hydrate(<RenderContent />, rootElement)
+} else {
+  render(<RenderContent />, rootElement)
+}
+
+serviceWorker.register()

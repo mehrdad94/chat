@@ -1,0 +1,68 @@
+[{
+  "id": "1",
+  "name": "John Doe",
+  "avatar": "https://randomuser.me/api/portraits/men/1.jpg",
+  "notification": 2,
+  "members": [],
+  "status": "ONLINE",
+  "publicId": "",
+  "meta": {
+    "membersOnline": []
+  }
+}, {
+  "id": "2",
+  "name": "Moo Doe",
+  "avatar": "https://randomuser.me/api/portraits/men/2.jpg",
+  "notification": 0,
+  "members": [],
+  "status": "TYPING",
+  "publicId":  ""
+}, {
+  "id": "3",
+  "name": "Adam Doe",
+  "avatar": "https://randomuser.me/api/portraits/men/3.jpg",
+  "notification": 0,
+  "members": [],
+  "status": "OFFLINE",
+  "publicId":  ""
+}, {
+  "id": "4",
+  "name": "Mizo Doe",
+  "avatar": "https://randomuser.me/api/portraits/men/4.jpg",
+  "notification": 0,
+  "members": [],
+  "status": "BUSY",
+  "publicId":  ""
+}, {
+  "id": "5",
+  "name": "John Doe",
+  "avatar": "https://randomuser.me/api/portraits/men/1.jpg",
+  "notification": 0,
+  "members": [],
+  "status": "ONLINE",
+  "publicId":  ""
+}, {
+  "id": "6",
+  "name": "Moo Doe",
+  "avatar": "https://randomuser.me/api/portraits/men/2.jpg",
+  "notification": 0,
+  "members": [],
+  "status": "DELETED",
+  "publicId":  ""
+}, {
+  "id": "7",
+  "name": "Adam Jones",
+  "avatar": "https://randomuser.me/api/portraits/men/3.jpg",
+  "notification": 0,
+  "members": [],
+  "status": "OFFLINE",
+  "publicId":  ""
+}, {
+  "id": "8",
+  "name": "Mizo Doe",
+  "avatar": "https://randomuser.me/api/portraits/men/4.jpg",
+  "notification": 0,
+  "members": [],
+  "status": "BUSY",
+  "publicId":  ""
+}]

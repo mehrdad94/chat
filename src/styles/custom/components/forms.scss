@@ -1,0 +1,15 @@
+.input-group-addon {
+  padding: .375rem .75rem;
+  margin-bottom: 0;
+  font-size: .875rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  text-align: center;
+  border-radius: .25rem;
+}
+
+.was-validated .form-control:invalid, .form-control.is-invalid {
+  border-color: #f44336!important;
+  background-image: none!important;
+}

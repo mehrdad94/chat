@@ -1,0 +1,22 @@
+@import './styles/spec/settings/breakpoints.scss';
+
+.main-wrapper {
+  margin-left: 280px;
+  transition: margin-left .3s ease-in-out;
+}
+
+@media screen and (max-width: $breakpoint-md) {
+  .close-stocks .main-wrapper {
+    margin-left: 0;
+  }
+}
+
+@media screen and (max-width: $breakpoint-xs) {
+  .main-wrapper {
+    display: none;
+  }
+
+  .close-stocks .main-wrapper {
+    display: block;
+  }
+}

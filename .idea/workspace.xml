@@ -1,0 +1,1099 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/src/views/Chat/ChatBox/ChatBox.js" description="import { connect } from 'react-redux'" line="1" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="ddd7c153-8baa-4fe6-9770-1e28ef6dbcbe" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/api/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/api/models/interNetworkMessage.model.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/api/models/messageText.model.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/api/models/profile.model.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/api/models/reply.model.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/api/models/room.model.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/api/models/typing.model.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/api/webRTC_experimental.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/api/webRTC_helpers.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/PrivateRoute/PrivateRoute.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/configs/constants.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/configs/dataRooms.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/helpers/treeModel.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/helpers/treeModel.test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/libs/socket.io.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/libs/webRTC.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redux/ActionTypes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redux/actions/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redux/actions/index.test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redux/middlewares/actionsSharedState.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redux/migrations.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redux/migrations.test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redux/reducers/application.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redux/reducers/application.test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redux/reducers/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redux/reducers/index.test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redux/reducers/messages.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redux/reducers/messages.test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redux/reducers/profiles.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redux/reducers/profiles.test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redux/reducers/rooms.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redux/reducers/rooms.test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redux/store.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/styles/custom/components/notif.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/Chat/Chat.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/Chat/ChatBox/ChatBox.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/Chat/ChatBox/ChatBox.test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/Chat/ChatBox/ChatBoxMessages.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/Chat/ChatBox/ChatBoxMessages.test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/Chat/ChatBox/ChatBoxTextArea.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/Chat/ChatBox/ChatBoxToolBar.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/Chat/ChatBox/ChatBoxToolBar.test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/Chat/Footer/Footer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/Chat/Header/Header.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/Chat/Sidebar/Sidebar.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/Chat/Sidebar/Sidebar.test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/Chat/Sidebar/SidebarItem.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/Chat/Sidebar/SidebarItem.test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/Dialogs/RoomCreate/RoomCreate.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/Dialogs/RoomCreate/RoomCreate.test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/Dialogs/RoomDelete/RoomDelete.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/Dialogs/RoomDelete/RoomDelete.test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/Dialogs/RoomJoin/RoomJoin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/Dialogs/RoomJoin/RoomJoin.test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/Dialogs/RoomUpdate/RoomUpdate.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/Dialogs/RoomUpdate/RoomUpdate.test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/Login/Login.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/Login/Login.test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/SignUp/SignUp.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/SignUp/SignUp.test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/.tmp/" />
+    <ignored path="$PROJECT_DIR$/temp/" />
+    <ignored path="$PROJECT_DIR$/tmp/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/api/webRTC_experimental.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="271">
+              <caret line="108" column="103" lean-forward="true" selection-start-line="108" selection-start-column="103" selection-end-line="108" selection-end-column="103" />
+              <folding>
+                <element signature="e#0#85#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/helpers/helper.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="166">
+              <caret line="141" column="31" selection-start-line="141" selection-start-column="31" selection-end-line="141" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/api/webRTC_helpers.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="7" selection-start-column="7" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/api/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1955">
+              <caret line="118" selection-start-line="118" selection-end-line="118" />
+              <folding>
+                <element signature="e#0#43#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/helpers/treeModel.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="31" column="13" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+                <element signature="e#550#595#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/api/models/typing.model.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" column="10" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/views/Chat/Chat.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="901">
+              <caret line="88" column="57" selection-start-line="88" selection-start-column="57" selection-end-line="88" selection-end-column="57" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/api/models/profile.model.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="3" column="46" selection-start-line="3" selection-start-column="46" selection-end-line="3" selection-end-column="46" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/api/models/messageText.model.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="24" selection-start-column="24" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/views/Chat/ChatBox/ChatBoxTextArea.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1071">
+              <caret line="74" column="10" lean-forward="true" selection-start-line="69" selection-start-column="8" selection-end-line="74" selection-end-column="10" />
+              <folding>
+                <element signature="e#0#25#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>peers fxw-nw jc-sb ai-c pY-20 pX-30 bgc-white</find>
+      <find>peers fxw-nw ai-c p-20 bdB bgc-white bgcH-grey-50 cur-p</find>
+      <find>profileCurrentUserCreate</find>
+      <find>moment</find>
+      <find>.oncl</find>
+      <find>font-aw</find>
+      <find>.spli</find>
+      <find>sendMessage</find>
+      <find>MessageUserBody</find>
+      <find>MessagesPartners</find>
+      <find>chat-box</find>
+      <find>CONNECTION_STATUS_ACTIVATE_SET</find>
+      <find>CONNECTION_STATUS_DEACTIVATE_SET</find>
+      <find>connectionStatusActivateSet</find>
+      <find>connectionStatusDeactivateSet</find>
+      <find>no on</find>
+      <find>disabled</find>
+      <find>getConnectionStatus</find>
+      <find>connectionStatus</find>
+      <find>connectionStatusActivate</find>
+      <find>connectionStatusDeactivate</find>
+      <find>console.log</find>
+      <find>minScrollbarLength: 20</find>
+      <find>perfectScr</find>
+      <find>scrollable</find>
+      <find>scroll</find>
+      <find>ON_NEW_MESSAGE</find>
+      <find>ramda</find>
+      <find>intervalCounter</find>
+      <find>createOffer</find>
+    </findStrings>
+    <replaceStrings>
+      <replace />
+      <replace>DIALOG_CREATE_ROOM_SHOW</replace>
+      <replace>DIALOG_CREATE_ROOM_HIDE</replace>
+      <replace>dialogCreateRoomDisplay</replace>
+      <replace>DIALOG_ROOM_CREATE_SHOW</replace>
+      <replace>DIALOG_ROOM_CREATE_HIDE</replace>
+      <replace>dialogRoomCreateShow</replace>
+      <replace>dialogRoomCreateHide</replace>
+      <replace>dialogRoomUpdateShow</replace>
+      <replace>dialogRoomUpdateHide</replace>
+      <replace>state.rooms.rooms.find(x =&gt; x.id === state.rooms.roomsActive)</replace>
+      <replace>membersOnline</replace>
+      <replace>getActiveDialog</replace>
+      <replace>getDialogActive</replace>
+      <replace>CONNECTION_STATUS_ACTIVATE</replace>
+      <replace>CONNECTION_STATUS_DEACTIVATE</replace>
+      <replace>connectionStatusActivate</replace>
+      <replace>connectionStatusDeactivate</replace>
+    </replaceStrings>
+    <dirStrings>
+      <dir>A:\Projects\chat\src\views\Dialogs\CreateRoom</dir>
+    </dirStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/redux/reducers/index.js" />
+        <option value="$PROJECT_DIR$/src/redux/migrations.test.js" />
+        <option value="$PROJECT_DIR$/src/api/models/dataChannelTyping.model.js" />
+        <option value="$PROJECT_DIR$/src/api/models/typing.model.js" />
+        <option value="$PROJECT_DIR$/.env" />
+        <option value="$PROJECT_DIR$/src/api/webRTC_helpers.js" />
+        <option value="$PROJECT_DIR$/src/styles/spec/settings/baseColors.scss" />
+        <option value="$PROJECT_DIR$/src/redux/middlewares/addSharedActionsState.js" />
+        <option value="$PROJECT_DIR$/src/views/Dialogs/RoomDelete/RoomDelete.js" />
+        <option value="$PROJECT_DIR$/src/views/Dialogs/RoomUpdate/RoomUpdate.js" />
+        <option value="$PROJECT_DIR$/src/views/Dialogs/RoomJoin/RoomJoin.js" />
+        <option value="$PROJECT_DIR$/src/redux/middlewares/actionsSharedState.js" />
+        <option value="$PROJECT_DIR$/src/redux/reducers/profiles.test.js" />
+        <option value="$PROJECT_DIR$/src/redux/reducers/profiles.js" />
+        <option value="$PROJECT_DIR$/src/redux/reducers/rooms.test.js" />
+        <option value="$PROJECT_DIR$/src/redux/reducers/rooms.js" />
+        <option value="$PROJECT_DIR$/src/App.js" />
+        <option value="$PROJECT_DIR$/src/api/models/room.model.js" />
+        <option value="$PROJECT_DIR$/src/api/models/profile.model.js" />
+        <option value="$PROJECT_DIR$/src/views/Chat/Sidebar/SidebarItem.js" />
+        <option value="$PROJECT_DIR$/src/views/Chat/Header/Header.js" />
+        <option value="$PROJECT_DIR$/src/views/Login/Login.js" />
+        <option value="$PROJECT_DIR$/src/views/SignUp/SignUp.js" />
+        <option value="$PROJECT_DIR$/src/redux/store.js" />
+        <option value="$PROJECT_DIR$/src/redux/migrations.js" />
+        <option value="$PROJECT_DIR$/src/api/models/messageText.model.js" />
+        <option value="$PROJECT_DIR$/src/api/models/reply.model.js" />
+        <option value="$PROJECT_DIR$/src/views/Chat/ChatBox/ChatBox.js" />
+        <option value="$PROJECT_DIR$/src/views/Chat/ChatBox/ChatBoxVideoContainer.js" />
+        <option value="$PROJECT_DIR$/src/redux/ActionTypes.js" />
+        <option value="$PROJECT_DIR$/src/redux/actions/index.test.js" />
+        <option value="$PROJECT_DIR$/src/redux/actions/index.js" />
+        <option value="$PROJECT_DIR$/src/redux/reducers/application.test.js" />
+        <option value="$PROJECT_DIR$/src/api/index.js" />
+        <option value="$PROJECT_DIR$/src/views/Dialogs/RoomCreate/RoomCreate.js" />
+        <option value="$PROJECT_DIR$/src/views/Chat/Sidebar/Sidebar.js" />
+        <option value="$PROJECT_DIR$/src/views/Chat/ChatBox/ChatBoxToolBar.js" />
+        <option value="$PROJECT_DIR$/src/redux/reducers/messages.test.js" />
+        <option value="$PROJECT_DIR$/src/redux/reducers/messages.js" />
+        <option value="$PROJECT_DIR$/src/libs/webRTC.js" />
+        <option value="$PROJECT_DIR$/src/redux/reducers/application.js" />
+        <option value="$PROJECT_DIR$/src/views/Chat/ChatBox/ChatBoxMessages.js" />
+        <option value="$PROJECT_DIR$/src/helpers/treeNetwork.js" />
+        <option value="$PROJECT_DIR$/src/helpers/treeModel.js" />
+        <option value="$PROJECT_DIR$/src/helpers/treeModel.test.js" />
+        <option value="$PROJECT_DIR$/src/views/Chat/ChatBox/ChatBoxTextArea.js" />
+        <option value="$PROJECT_DIR$/src/configs/constants.json" />
+        <option value="$PROJECT_DIR$/src/api/models/interNetworkMessage.model.js" />
+        <option value="$PROJECT_DIR$/src/views/Chat/Chat.js" />
+        <option value="$PROJECT_DIR$/src/api/webRTC_experimental.js" />
+        <option value="$PROJECT_DIR$/src/helpers/helper.js" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectConfigurationFiles">
+    <option name="files">
+      <list>
+        <option value="$PROJECT_DIR$/.idea/chat.iml" />
+        <option value="$PROJECT_DIR$/.idea/misc.xml" />
+        <option value="$PROJECT_DIR$/.idea/modules.xml" />
+        <option value="$PROJECT_DIR$/.idea/vcs.xml" />
+        <option value="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
+        <option value="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" />
+        <option value="$PROJECT_DIR$/.idea/dictionaries/Mehrdad.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="354" />
+    <option name="width" value="1013" />
+    <option name="height" value="735" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="chat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="chat" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="chat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="chat" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="chat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="chat" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="chat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="chat" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="chat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="chat" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="chat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="chat" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="Chat" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="chat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="chat" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="Chat" type="462c0819:PsiDirectoryNode" />
+              <item name="ChatBox" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="editor.config.ad.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="nodejs.jest.jest_package" value="$PROJECT_DIR$/node_modules/react-scripts" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="yarn" />
+    <property name="prettierjs.PrettierConfiguration.Package" value="C:\Users\Mehrdad\AppData\Roaming\npm\node_modules\prettier" />
+    <property name="settings.editor.selected.configurable" value="JavaScript.Libraries" />
+    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2019.1.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="A:\Projects\chat\src\api" />
+      <recent name="A:\Projects\chat\src\views\Chat" />
+      <recent name="A:\Projects\chat\src" />
+      <recent name="A:\Projects\chat\public" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Jest.test tree model">
+    <configuration name="application reducer" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="SUITE" />
+      <test-file value="$PROJECT_DIR$/src/redux/reducers/application.test.js" />
+      <test-names>
+        <test-name value="application reducer" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="test tree model" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="SUITE" />
+      <test-file value="$PROJECT_DIR$/src/helpers/treeModel.test.js" />
+      <test-names>
+        <test-name value="test tree model" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="test tree model.should add items to tree" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/helpers/treeModel.test.js" />
+      <test-names>
+        <test-name value="test tree model" />
+        <test-name value="should add items to tree" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="test tree model.should get a node connections" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/helpers/treeModel.test.js" />
+      <test-names>
+        <test-name value="test tree model" />
+        <test-name value="should get a node connections" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="test tree model.should remove an item from the tree" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/helpers/treeModel.test.js" />
+      <test-names>
+        <test-name value="test tree model" />
+        <test-name value="should remove an item from the tree" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Jest.test tree model" />
+        <item itemvalue="Jest.test tree model.should get a node connections" />
+        <item itemvalue="Jest.test tree model.should remove an item from the tree" />
+        <item itemvalue="Jest.test tree model.should add items to tree" />
+        <item itemvalue="Jest.application reducer" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ddd7c153-8baa-4fe6-9770-1e28ef6dbcbe" name="Default Changelist" comment="" />
+      <created>1580799599317</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1580799599317</updated>
+      <workItem from="1580799601998" duration="3747000" />
+      <workItem from="1581082563701" duration="599000" />
+      <workItem from="1581108434790" duration="8043000" />
+      <workItem from="1581236590694" duration="2442000" />
+      <workItem from="1581324686678" duration="6102000" />
+      <workItem from="1581849083462" duration="4192000" />
+      <workItem from="1582013938874" duration="6703000" />
+      <workItem from="1582037914073" duration="1927000" />
+      <workItem from="1582097015949" duration="7347000" />
+      <workItem from="1582451107312" duration="597000" />
+      <workItem from="1582457680030" duration="4134000" />
+      <workItem from="1582724943202" duration="216000" />
+      <workItem from="1582788627830" duration="13132000" />
+      <workItem from="1582811992577" duration="754000" />
+      <workItem from="1583679329815" duration="1454000" />
+      <workItem from="1583827346651" duration="15944000" />
+      <workItem from="1584108745181" duration="4999000" />
+      <workItem from="1584123041155" duration="11174000" />
+      <workItem from="1584177796960" duration="15374000" />
+      <workItem from="1584214250355" duration="9432000" />
+      <workItem from="1584260244960" duration="14413000" />
+      <workItem from="1584284302966" duration="4807000" />
+      <workItem from="1584362461888" duration="15828000" />
+      <workItem from="1584435100678" duration="13316000" />
+      <workItem from="1584464757707" duration="5563000" />
+      <workItem from="1584522846019" duration="8444000" />
+      <workItem from="1584542802277" duration="1522000" />
+      <workItem from="1584608933028" duration="12402000" />
+      <workItem from="1584630285768" duration="8365000" />
+      <workItem from="1584701631318" duration="9358000" />
+      <workItem from="1584721095313" duration="1010000" />
+      <workItem from="1584780735527" duration="9527000" />
+      <workItem from="1585156573189" duration="1144000" />
+      <workItem from="1585391869264" duration="5851000" />
+      <workItem from="1585399488164" duration="793000" />
+      <workItem from="1585429142013" duration="3104000" />
+      <workItem from="1585476694962" duration="6022000" />
+      <workItem from="1586725842005" duration="2936000" />
+      <workItem from="1586814448926" duration="4671000" />
+      <workItem from="1586852500855" duration="12275000" />
+      <workItem from="1586891984612" duration="2713000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TestHistory">
+    <history-entry file="test_tree_model_should_get_a_node_connections - 2020.04.14 at 16h 08m 43s.xml">
+      <configuration name="test tree model.should get a node connections" configurationId="JavaScriptTestRunnerJest" />
+    </history-entry>
+    <history-entry file="test_tree_model_should_get_a_node_connections - 2020.04.14 at 16h 10m 21s.xml">
+      <configuration name="test tree model.should get a node connections" configurationId="JavaScriptTestRunnerJest" />
+    </history-entry>
+    <history-entry file="test_tree_model_should_get_a_node_connections - 2020.04.14 at 16h 13m 37s.xml">
+      <configuration name="test tree model.should get a node connections" configurationId="JavaScriptTestRunnerJest" />
+    </history-entry>
+    <history-entry file="test_tree_model_should_get_a_node_connections - 2020.04.14 at 16h 14m 15s.xml">
+      <configuration name="test tree model.should get a node connections" configurationId="JavaScriptTestRunnerJest" />
+    </history-entry>
+    <history-entry file="test_tree_model - 2020.04.14 at 16h 15m 33s.xml">
+      <configuration name="test tree model" configurationId="JavaScriptTestRunnerJest" />
+    </history-entry>
+    <history-entry file="test_tree_model_should_get_a_node_connections - 2020.04.14 at 16h 17m 45s.xml">
+      <configuration name="test tree model.should get a node connections" configurationId="JavaScriptTestRunnerJest" />
+    </history-entry>
+    <history-entry file="test_tree_model_should_get_a_node_connections - 2020.04.14 at 16h 18m 16s.xml">
+      <configuration name="test tree model.should get a node connections" configurationId="JavaScriptTestRunnerJest" />
+    </history-entry>
+    <history-entry file="test_tree_model - 2020.04.14 at 17h 01m 19s.xml">
+      <configuration name="test tree model" configurationId="JavaScriptTestRunnerJest" />
+    </history-entry>
+    <history-entry file="test_tree_model_should_get_a_node_connections - 2020.04.14 at 17h 02m 19s.xml">
+      <configuration name="test tree model.should get a node connections" configurationId="JavaScriptTestRunnerJest" />
+    </history-entry>
+    <history-entry file="test_tree_model - 2020.04.14 at 17h 02m 59s.xml">
+      <configuration name="test tree model" configurationId="JavaScriptTestRunnerJest" />
+    </history-entry>
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="262376000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.7670068" visible="true" weight="0.21056548" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="npm" order="2" sideWeight="0.2329932" side_tool="true" weight="0.21056548" />
+      <window_info id="Favorites" order="3" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.49829933" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39965987" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32993197" />
+      <window_info anchor="bottom" id="GraphQL" order="9" weight="0.32993197" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.32993197" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.23469388" />
+      <window_info anchor="bottom" id="TypeScript" order="12" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+    <layout-to-restore>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22098215" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="npm" order="2" side_tool="true" />
+      <window_info id="Favorites" order="3" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.49829933" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39965987" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32993197" />
+      <window_info anchor="bottom" id="GraphQL" order="9" weight="0.32993197" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.32993197" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.3112245" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/chat$application_reducer_should_handle_delete_room.info" NAME="application reducer.should handle delete room Coverage Results" MODIFIED="1584367410994" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="JestJavaScriptTestRunnerCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="evaluateCodeFragment">
+      <expression>
+        <expression-string>root</expression-string>
+        <language-id>JavaScript</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>tree</expression-string>
+        <language-id>JavaScript</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>node</expression-string>
+        <language-id>JavaScript</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>node.children</expression-string>
+        <language-id>JavaScript</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>node.model.id</expression-string>
+        <language-id>JavaScript</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>root.drop()</expression-string>
+        <language-id>JavaScript</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>root.first(node =&gt; node.model.id === 8)</expression-string>
+        <language-id>JavaScript</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>root.first(node =&gt; node.model.id === 6)</expression-string>
+        <language-id>JavaScript</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>root.first(node =&gt; node.model.id === 8).hasChildren()</expression-string>
+        <language-id>JavaScript</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+    </expressions>
+    <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>root</expression-string>
+        <language-id>JavaScript</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/redux/migrations.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="32" selection-start-column="32" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="9" selection-start-column="9" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/styles/spec/settings/baseColors.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="77" column="48" selection-start-line="77" selection-start-column="48" selection-end-line="77" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/redux/middlewares/addSharedActionsState.js" />
+    <entry file="file://$PROJECT_DIR$/src/redux/reducers/profiles.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="16" column="19" lean-forward="true" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="53" />
+          <folding>
+            <element signature="e#0#33#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/redux/reducers/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="10" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/redux/reducers/rooms.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1020">
+          <caret line="190" lean-forward="true" selection-start-line="190" selection-end-line="190" />
+          <folding>
+            <element signature="e#0#27#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-89">
+          <caret line="14" column="37" lean-forward="true" selection-start-line="14" selection-start-column="37" selection-end-line="14" selection-end-column="37" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/redux/store.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="11" column="30" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#52#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/redux/migrations.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/Chat/Header/Header.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="799">
+          <caret line="53" column="20" selection-start-line="53" selection-start-column="20" selection-end-line="53" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/Login/Login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/SignUp/SignUp.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="18" column="15" selection-start-line="18" selection-start-column="15" selection-end-line="18" selection-end-column="15" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/Chat/ChatBox/ChatBoxMessages.test.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/Chat/ChatBox/ChatBoxVideoContainer.test.js" />
+    <entry file="file://$PROJECT_DIR$/src/views/Chat/ChatBox/ChatBoxVideoContainer.js" />
+    <entry file="file://$PROJECT_DIR$/src/views/Chat/ChatBox/ChatBox.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/redux/reducers/application.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="799">
+          <caret line="47" column="55" selection-start-line="47" selection-start-column="55" selection-end-line="47" selection-end-column="55" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/redux/reducers/profiles.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="311">
+          <caret line="27" column="13" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/Dialogs/RoomCreate/RoomCreate.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="850">
+          <caret line="58" column="19" selection-start-line="58" selection-start-column="19" selection-end-line="58" selection-end-column="19" />
+          <folding>
+            <element signature="e#37#62#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/redux/actions/index.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="264" column="66" selection-start-line="264" selection-start-column="66" selection-end-line="264" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/Chat/ChatBox/ChatBoxToolBar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="506">
+          <caret line="77" column="90" selection-start-line="77" selection-start-column="90" selection-end-line="77" selection-end-column="90" />
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/Chat/Sidebar/Sidebar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" selection-start-line="7" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/immutability-helper/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1377">
+          <caret line="81" column="38" selection-start-line="81" selection-start-column="38" selection-end-line="81" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/redux/reducers/application.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="14" column="151" selection-start-line="14" selection-start-column="151" selection-end-line="14" selection-end-column="151" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/redux/middlewares/actionsSharedState.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/redux/reducers/messages.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="34" column="5" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
+          <folding>
+            <element signature="e#0#33#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/redux/reducers/messages.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="21" column="149" selection-start-line="21" selection-start-column="149" selection-end-line="21" selection-end-column="149" />
+          <folding>
+            <element signature="e#0#79#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/helpers/helper.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-340">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="10" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/redux/reducers/rooms.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="56" column="33" selection-start-line="56" selection-start-column="9" selection-end-line="56" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/redux/actions/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-170">
+          <caret line="10" column="2" selection-start-line="10" selection-start-column="2" selection-end-line="10" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/helpers/treeNetwork.js" />
+    <entry file="file://$PROJECT_DIR$/src/views/Chat/ChatBox/ChatBoxMessages.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/helpers/treeModel.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="27" column="17" lean-forward="true" selection-start-line="27" selection-start-column="17" selection-end-line="27" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/redux/ActionTypes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/@types/react/index.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="472" column="8" selection-start-line="472" selection-start-column="8" selection-end-line="472" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/configs/constants.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="74" selection-start-line="5" selection-start-column="53" selection-end-line="5" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/models/interNetworkMessage.model.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="47" lean-forward="true" selection-start-column="47" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/models/reply.model.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/models/room.model.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="46" selection-start-line="6" selection-start-column="46" selection-end-line="6" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1955">
+          <caret line="118" selection-start-line="118" selection-end-line="118" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/helpers/treeModel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="31" column="13" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#550#595#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/models/typing.model.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="10" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/Chat/Chat.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="901">
+          <caret line="88" column="57" selection-start-line="88" selection-start-column="57" selection-end-line="88" selection-end-column="57" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/Chat/ChatBox/ChatBoxTextArea.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1071">
+          <caret line="74" column="10" lean-forward="true" selection-start-line="69" selection-start-column="8" selection-end-line="74" selection-end-column="10" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/models/profile.model.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="46" selection-start-line="3" selection-start-column="46" selection-end-line="3" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/models/messageText.model.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="24" selection-start-column="24" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/webRTC_helpers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="7" selection-start-column="7" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/webRTC_experimental.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="271">
+          <caret line="108" column="103" lean-forward="true" selection-start-line="108" selection-start-column="103" selection-end-line="108" selection-end-column="103" />
+          <folding>
+            <element signature="e#0#85#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/helpers/helper.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="141" column="31" selection-start-line="141" selection-start-column="31" selection-end-line="141" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

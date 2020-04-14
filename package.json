@@ -6,9 +6,27 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "bootstrap": "^4.4.1",
+    "brand-colors": "^2.1.1",
+    "immutability-helper": "^3.0.1",
+    "jquery": "^3.4.1",
+    "moment": "^2.24.0",
+    "perfect-scrollbar": "^1.5.0",
+    "popper.js": "^1.16.1",
+    "prop-types": "^15.7.2",
+    "ramda": "^0.27.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "react-scripts": "3.3.1"
+    "react-redux": "^7.2.0",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "3.3.1",
+    "react-virtualized": "^9.21.2",
+    "reactour": "^1.16.0",
+    "redux": "^4.0.5",
+    "redux-persist": "^6.0.0",
+    "reselect": "^4.0.0",
+    "tree-model": "^1.0.7",
+    "uuid": "^3.4.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -30,5 +48,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "node-sass": "^4.13.1"
   }
 }
