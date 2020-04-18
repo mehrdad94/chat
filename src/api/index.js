@@ -143,7 +143,8 @@ export function apiRoomCreate ({ name, avatar = '', publicId, clb }) {
 }
 
 export function apiRoomUpdate ({ name, avatar = '', newPublicId, publicId, clb }) {
-  roomSocket.emit('UPDATE', { name, avatar, newPublicId, publicId }, clb)
+  if (publicId === newPublicId) roomSocket.emit('UPDATE', { name, avatar, publicId }, clb)
+  else roomSocket.emit('UPDATE', { name, avatar, newPublicId, publicId }, clb)
 }
 
 export function apiRoomJoin ({ publicId, clb }) {

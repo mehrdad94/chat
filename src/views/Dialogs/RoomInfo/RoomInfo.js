@@ -2,12 +2,11 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Dialog } from '../../../components/Dialog/Dialog'
-import FormInput from '../../../components/FormInput/FormInput'
 import { dialogActiveSet, roomUpdate } from '../../../redux/actions'
 import constants from '../../../configs/constants'
-import { apiRoomUpdate } from '../../../api'
 import { getDialogActive } from '../../../redux/reducers/application'
 import { getRoomActive } from '../../../redux/reducers/rooms'
+import { getRoomActiveProfiles } from '../../../redux/reducers/profiles'
 
 const genState = props => {
   const {
@@ -30,14 +29,31 @@ const genState = props => {
   }
 }
 
-class RoomUpdate extends React.Component {
-  state = genState(this.props)
+function Member (props) {
+  return (
+    <li>
+      <a href="#!" className="peers fxw-nw td-n p-20 bdB c-grey-800 cH-blue bgcH-grey-100 ai-c">
+        <div className="peer mR-15">
+          <img className="w-3r bdrs-50p" src={props.avatar} alt="avatar"/>
+        </div>
+        <div className="peer peer-greed">
+          <div>
+            <div className="peers jc-sb fxw-nw">
+              <div className="peer"><p className="fw-500 mB-0">{props.name}</p></div>
+              <div className="peer">
+                {/*<small className="fsz-xs">5 mins ago</small>*/}
+              </div>
+            </div>
+            {/*<span className="c-grey-600 fsz-sm">Want to create your own customized data generator for your app...</span>*/}
+          </div>
+        </div>
+      </a>
+    </li>
+  )
+}
 
-  handleChange = (type, event) => {
-    this.setState({
-      [type]: event.target.value
-    })
-  }
+class RoomInfo extends React.Component {
+  state = genState(this.props)
 
   onApiError = error => {
     if (error.name === 'ValidationError') {
@@ -53,19 +69,6 @@ class RoomUpdate extends React.Component {
     }
   }
 
-  onAccept = () => {
-    apiRoomUpdate({
-      name: this.state.name,
-      avatar: this.state.avatar,
-      newPublicId: this.state.newPublicId,
-      publicId: this.state.publicId,
-      clb: payload => {
-        if (payload.type === 'ERROR') this.onApiError(payload)
-        else this.props.dialogActiveSet('')
-      }
-    })
-  }
-
   componentDidUpdate(prevProps, prevState, snapshot) {
     if (prevProps.roomsActive.id !== this.props.roomsActive.id) {
       // reset state
@@ -75,31 +78,33 @@ class RoomUpdate extends React.Component {
 
   DialogHeader = () => {
     return (
-      <h5 className="m-0 dialog-title">Edit the Room</h5>
+      <h5 className="m-0 dialog-title">Room Info</h5>
     )
   }
 
   DialogBody = () => {
     return (
-      <form>
-        <div className="form-group">
-          <FormInput
-            inputLabel={ 'Name' }
-            inputValue={ this.state.name }
-            inputAriaLabel={ 'InputRoomName' }
-            invalidFeedback={ this.state.invalidFeedBacks.name }
-            onChange={ event => this.handleChange('name', event) }/>
-        </div>
-
-        <div className="form-group">
-          <FormInput
-            inputLabel={ 'Choose a unique Id for your room' }
-            inputValue={ this.state.newPublicId }
-            inputAriaLabel={ 'InputRoomPublicId' }
-            invalidFeedback={ this.state.invalidFeedBacks.newPublicId }
-            onChange={ event => this.handleChange('newPublicId', event) }/>
-        </div>
-      </form>
+      <ul className="pos-r lis-n p-0 m-0 fsz-sm">
+        <li className="pX-20 pY-15 bdB">
+          <i className="ti-info pR-10"/>
+          <span className="fsz-sm fw-600 c-grey-900">Info</span>
+        </li>
+        <li className="pX-20 pT-15 pB-10">
+          <span className="fsz-sm fw-600 c-grey-900 pR-10">Name:</span>
+          <span>{this.props.roomsActive.name}</span>
+        </li>
+        <li className="pX-20 pT-15 pB-15">
+          <span className="fsz-sm fw-600 c-grey-900 pR-10">Room Id:</span>
+          <span>{this.props.roomsActive.publicId}</span>
+        </li>
+        <li className="pX-20 pY-15 bdB bdT">
+          <i className="ti-face-smile pR-10"/>
+          <span className="fsz-sm fw-600 c-grey-900">Members</span>
+        </li>
+        {
+          this.props.roomActiveProfiles.map(profile => <Member key={profile.id} {...profile}/>)
+        }
+      </ul>
     )
   }
 
@@ -107,7 +112,6 @@ class RoomUpdate extends React.Component {
     return (
       <div className="w-100">
         <button type="button" className="btn mr-1" data-dismiss="modal">Close</button>
-        <button className="btn btn-primary cur-p ml-1" onClick={this.onAccept}>Done</button>
       </div>
     )
   }
@@ -126,17 +130,19 @@ class RoomUpdate extends React.Component {
       <Dialog
         onModalClose={this.onModalClose}
         onModalOpen={this.onModalOpen}
-        isActive={this.props.dialogActive === constants.DIALOG_NAMES[1]}
+        isActive={this.props.dialogActive === constants.DIALOG_NAMES[4]}
         header={<this.DialogHeader/>}
         body={<this.DialogBody/>}
-        footer={<this.DialogFooter/>}/>
+        footer={<this.DialogFooter/>}
+        modalId={'RoomInfoDialog'}/>
     )
   }
 }
 
 const mapStateToProps = state => ({
   dialogActive: getDialogActive(state),
-  roomsActive: getRoomActive(state)
+  roomsActive: getRoomActive(state),
+  roomActiveProfiles: getRoomActiveProfiles(state)
 })
 
 const mapDispatchToProps = dispatch => {
@@ -146,4 +152,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(RoomUpdate)
+export default connect(mapStateToProps, mapDispatchToProps)(RoomInfo)

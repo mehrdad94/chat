@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import PerfectScrollbar from 'perfect-scrollbar'
 import $ from 'jquery'
 
 export class Dialog extends React.Component {
@@ -7,6 +8,7 @@ export class Dialog extends React.Component {
     super(props)
 
     this.modalRef = React.createRef()
+    this.scrollableRef = React.createRef()
   }
 
   showModal = () => {
@@ -30,6 +32,8 @@ export class Dialog extends React.Component {
     this.modalRef.current.on('shown.bs.modal', e => { this.props.onModalOpen(e) })
 
     if (this.props.isActive) this.showModal()
+
+    new PerfectScrollbar(this.scrollableRef.current)
   }
 
   componentDidUpdate (prevProps) {
@@ -40,9 +44,10 @@ export class Dialog extends React.Component {
 
   render() {
     return (
-      <div className="modal fade" ref={this.modalRef}>
+      <div className="modal fade" ref={this.modalRef} id={this.props.modalId}>
         <div className="modal-dialog confirm-dialog" role="document">
           <div className="modal-content">
+            {this.modalId}
             {
               this.props.header ? (
                 <div className="bd p-15">
@@ -53,7 +58,7 @@ export class Dialog extends React.Component {
 
             {
               this.props.body ? (
-                <div className="modal-body">
+                <div className="modal-body" ref={this.scrollableRef}>
                   { this.props.body }
                 </div>
               ) : null
@@ -80,12 +85,14 @@ Dialog.propTypes = {
   onAccept: PropTypes.func,
   header: PropTypes.object,
   body: PropTypes.object,
-  footer: PropTypes.object
+  footer: PropTypes.object,
+  modalId: PropTypes.string
 }
 
 Dialog.defaultProps = {
   isActive: false,
   question: '',
+  modalId: '',
   onModalClose: () => {},
   onModalOpen: () => {},
   onAccept: () => {}

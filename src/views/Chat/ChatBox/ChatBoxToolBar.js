@@ -30,6 +30,10 @@ class ChatBoxToolBar extends React.Component {
     this.props.dialogActiveSet(constants.DIALOG_NAMES[2])
   }
 
+  onRoomInfoClick = () => {
+    this.props.dialogActiveSet(constants.DIALOG_NAMES[4])
+  }
+
   onCopyRoomIdClick = () => {
     navigator.clipboard.writeText(this.props.roomsActive.publicId).then(() => {
     })
@@ -65,6 +69,13 @@ class ChatBoxToolBar extends React.Component {
                     <i className="ti-more"/>
                   </a>
                   <ul className="dropdown-menu fsz-sm">
+                    <li onClick={this.onRoomInfoClick}>
+                      <button className="btn ta-l w-100 d-b td-n pY-5 bgcH-grey-100 c-grey-700">
+                        <i className="ti-info mR-10"/>
+                        <span>Room Info</span>
+                      </button>
+                    </li>
+
                     <li onClick={this.onEditClick}>
                       <button className="btn ta-l w-100 d-b td-n pY-5 bgcH-grey-100 c-grey-700"
                               disabled={isServerDisconnected(this.props.connectionStatus)}>

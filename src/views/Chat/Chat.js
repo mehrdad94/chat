@@ -28,7 +28,8 @@ import RoomCreate from '../Dialogs/RoomCreate/RoomCreate'
 import RoomUpdate from '../Dialogs/RoomUpdate/RoomUpdate'
 import RoomDelete from '../Dialogs/RoomDelete/RoomDelete'
 import RoomJoin from '../Dialogs/RoomJoin/RoomJoin'
-import Footer from './Footer/Footer'
+import RoomInfo from '../Dialogs/RoomInfo/RoomInfo'
+
 import { socketConnect, setToken, apiDisconnect } from '../../api'
 import { createAnswer, answer, addIceCandidate } from '../../api/webRTC_experimental'
 import { eventManage, typingReceivedHelper } from '../../helpers/helper'
@@ -69,7 +70,7 @@ class Chat extends React.Component {
       onSocketDisconnect: () => {
         this.props.connectionStatusDeactivate()
       },
-      onRoomRead: (rooms) => {
+      onRoomRead: rooms => {
         this.props.roomReset()
         this.props.roomCreateBatch(rooms)
       },
@@ -86,7 +87,6 @@ class Chat extends React.Component {
         infos.forEach(info => {
           this.props.roomOnlineCreateBatch(info.userIds, info.roomId)
           info.users.forEach(user => this.props.profileCreate(user))
-          console.log(treeAdd(info.roomId, info.userIds))
         })
       },
       onErrorAuthenticate: () => {
@@ -176,7 +176,7 @@ class Chat extends React.Component {
               <RoomUpdate />
               <RoomDelete />
               <RoomJoin />
-              <Footer/>
+              <RoomInfo />
             </div>
           </div>
         </div>

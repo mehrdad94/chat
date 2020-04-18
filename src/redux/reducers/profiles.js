@@ -4,6 +4,7 @@ import {
   PROFILE_UPDATE,
   PROFILE_CURRENT_USER_CREATE
 } from '../ActionTypes'
+import { getRoomActive } from './rooms'
 
 export const initialState = {
   profileCurrentUser: ''
@@ -32,4 +33,6 @@ export const getProfileCurrentUser = state => {
     return state.profiles[getProfilesCurrentUserId(state)].profiles[getProfilesCurrentUserId(state)]
   } else return {}
 }
+
 export const getProfiles = state => state.profiles[getProfilesCurrentUserId(state)] ? state.profiles[getProfilesCurrentUserId(state)].profiles : {}
+export const getRoomActiveProfiles = state => getRoomActive(state).members ? getRoomActive(state).members.map(id => getProfiles(state)[id]) : []
