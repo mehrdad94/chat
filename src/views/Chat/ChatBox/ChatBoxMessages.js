@@ -1,4 +1,4 @@
-import React from 'react'
+import React  from 'react'
 import { connect } from 'react-redux'
 import { CellMeasurer, CellMeasurerCache, List, AutoSizer } from 'react-virtualized'
 import moment from 'moment'
@@ -12,6 +12,7 @@ import constants from '../../../configs/constants.json'
 const cache = new CellMeasurerCache({
   fixedWidth: true
 })
+
 let scrollableElement
 
 class ChatBoxMessages extends React.Component {
@@ -20,7 +21,8 @@ class ChatBoxMessages extends React.Component {
   }
 
   state = {
-    scrollToIndex: 0
+    scrollToIndex: 0,
+    isScrollDown: true
   }
 
   renderMessage = ({ index, key, parent, style }) => {
@@ -75,12 +77,27 @@ class ChatBoxMessages extends React.Component {
     new PerfectScrollbar(scrollableElement, { minScrollbarLength: 25 })
 
     eventManage.subscribe('ON_NEW_MESSAGE', ({ roomId }) => {
-      if (roomId === this.props.roomsActiveId) this.scrollDown()
+      if (roomId === this.props.roomsActiveId && this.state.isScrollDown) this.scrollDown()
     })
 
     eventManage.subscribe('USER_SENT_NEW_MESSAGE', () => {
       this.scrollDown()
     })
+
+    if (this.props.roomsActiveId) this.scrollDown()
+
+    scrollableElement.addEventListener('ps-scroll-y', () => {
+      if (this.state.isScrollDown === true) this.setState({ isScrollDown: false })
+    })
+    scrollableElement.addEventListener('ps-y-reach-end', () => {
+      if (this.state.isScrollDown === false) this.setState({ isScrollDown: true })
+    })
+  }
+
+  componentDidUpdate (prevProps) {
+    if (prevProps.roomsActiveId !== this.props.roomsActiveId) {
+      this.scrollDown()
+    }
   }
 
   render () {
@@ -98,6 +115,15 @@ class ChatBoxMessages extends React.Component {
                   scrollToIndex={this.state.scrollToIndex}/>
           )}
         </AutoSizer>
+
+        {
+          this.state.isScrollDown ? null : (
+            <button type="button" className="btn pos-a cur-p btn-light bdrs-50p w-2r p-0 h-2r pos-a b-20 r-20" onClick={this.scrollDown}>
+              <span className="notification-counter bgc-red pos-a b-20 r-20">3</span>
+              <i className="fa fa-arrow-down"/>
+            </button>
+          )
+        }
       </div>
     )
   }

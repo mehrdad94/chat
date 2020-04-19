@@ -35,4 +35,4 @@ export const getProfileCurrentUser = state => {
 }
 
 export const getProfiles = state => state.profiles[getProfilesCurrentUserId(state)] ? state.profiles[getProfilesCurrentUserId(state)].profiles : {}
-export const getRoomActiveProfiles = state => getRoomActive(state).members ? getRoomActive(state).members.map(id => getProfiles(state)[id]) : []
+export const getRoomActiveProfiles = state => getRoomActive(state).members ? getRoomActive(state).members.map(id => getProfiles(state)[id] ? getProfiles(state)[id] : {}) : []

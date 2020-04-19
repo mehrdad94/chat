@@ -1,8 +1,6 @@
 import { apiSendDescription, apiSendIceCandidate, getWebRTCListeners } from './index'
 import { getIceServers } from './webRTC_helpers'
 import { messageQueue } from '../helpers/helper'
-import { getNodeConnections } from '../helpers/treeModel'
-
 import typingModel from './models/typing.model'
 import replyModel from './models/reply.model'
 
@@ -85,18 +83,18 @@ function setChannelEvents ({ channel, peerId, onopen }) {
       case constants.MESSAGE_TYPES[0]:
         getWebRTCListeners('onmessage')({roomId: data.roomId, userId: data.senderId, message: data})
 
-        // send that message to others on networks
-        const nodeConnections = getNodeConnections(roomId, senderId)
-        const nodeReceivers = nodeConnections.filter(id => id !== receiverId)
-        nodeReceivers.forEach(async id => {
-          await sendMessage({
-            roomId,
-            receiverId: id,
-            senderId,
-            type: data.type,
-            message: data
-          })
-        })
+        // // send that message to others on networks
+        // const nodeConnections = getNodeConnections(roomId, senderId)
+        // const nodeReceivers = nodeConnections.filter(id => id !== receiverId)
+        // nodeReceivers.forEach(async id => {
+        //   await sendMessage({
+        //     roomId,
+        //     receiverId: id,
+        //     senderId,
+        //     type: data.type,
+        //     message: data
+        //   })
+        // })
 
         // send a reply
         await sendMessage({ roomId, senderId, receiverId, message: { id: data.id }, type: constants.DATA_CHANNEL_MESSAGE_TYPES[1] })
@@ -106,8 +104,9 @@ function setChannelEvents ({ channel, peerId, onopen }) {
         break
       case constants.DATA_CHANNEL_MESSAGE_TYPES[1]:
         // sent message response
-        // getWebRTCListeners('onMessagesStatusUpdate')({ ...data, status: constants.MESSAGE_STATUS[1] })
-        // messageQueue.onSuccess(data.messageId)
+        getWebRTCListeners('onMessagesReceived')({ ...data })
+
+        messageQueue.onSuccess(data.messageId)
         break
       default:
         throw new Error('unknown data type')

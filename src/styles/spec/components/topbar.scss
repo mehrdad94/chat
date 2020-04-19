@@ -69,18 +69,6 @@
       .notifications {
         position: relative;
 
-        .counter {
-          background-color: $default-danger;
-          border-radius: 50px;
-          color: $default-white;
-          font-size: 10px;
-          line-height: 1;
-          padding: 3px 5.5px;
-          position: absolute;
-          right: 6px;
-          top: 12px;
-        }
-
         .dropdown-menu {
           min-width: 350px;
           padding: 0;
@@ -204,4 +192,14 @@
       width: calc(100% - #{$offscreen-size});
     }
   }
+}
+
+
+.notification-counter {
+  background-color: $default-danger;
+  border-radius: 50px;
+  color: $default-white;
+  font-size: 10px;
+  line-height: 1;
+  padding: 3px 5.5px;
 }

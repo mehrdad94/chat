@@ -18,7 +18,8 @@ import {
   profileCreate,
   profileCurrentUserCreate,
   messageCreate,
-  messageUpdate
+  messageUpdate,
+  messageSentCreate
 } from '../../redux/actions'
 
 import Header from './Header/Header'
@@ -34,7 +35,7 @@ import { socketConnect, setToken, apiDisconnect } from '../../api'
 import { createAnswer, answer, addIceCandidate } from '../../api/webRTC_experimental'
 import { eventManage, typingReceivedHelper } from '../../helpers/helper'
 import { getProfiles, getProfilesCurrentUserId } from '../../redux/reducers/profiles'
-import { treeAdd, treeRemove } from '../../helpers/treeModel'
+// import { treeAdd, treeRemove } from '../../helpers/treeModel'
 
 const genState = props => {
   const {
@@ -106,13 +107,9 @@ class Chat extends React.Component {
         this.props.profileCreate(user)
 
         this.props.roomOnlineCreate(user.id, roomId)
-
-        treeAdd(roomId, [user.id])
       },
       onProfileDisconnected: (user, roomId) => {
         this.props.roomOnlineDelete(user.id, roomId)
-
-        treeRemove(roomId, user.id)
       },
       onMessageCreate: ({roomId, userId, message}) => {
         this.props.messageCreate(message, roomId)
@@ -121,8 +118,8 @@ class Chat extends React.Component {
 
         this.props.roomStoppedTyping(roomId, userId)
       },
-      onMessagesStatusUpdate: ({ roomId, messageId, status }) => {
-        this.props.messageUpdate({ id: messageId, status }, roomId)
+      onMessagesReceived: ({ roomId, messageId }) => {
+        this.props.messageSentCreate(messageId, roomId)
       },
       onTyping: ({roomId, userId}) => {
         typingReceivedHelper(roomId, userId, () => {
@@ -202,7 +199,8 @@ const mapDispatchToProps = {
   profileCreate,
   profileCurrentUserCreate,
   messageCreate,
-  messageUpdate
+  messageUpdate,
+  messageSentCreate
 }
 
 const mapStateToProps = state => ({

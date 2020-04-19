@@ -4,7 +4,8 @@ import { sharedStateMock } from '../middlewares/actionsSharedState'
 import {
   messageCreate,
   messageDelete,
-  messageUpdate
+  messageUpdate,
+  messageSentCreate
 } from '../actions'
 
 describe('application reducer', function () {
@@ -14,7 +15,8 @@ describe('application reducer', function () {
     receiverId: "Room Id",
     type: "TEXT",
     body: "dummy text",
-    sentTime: "10:00 AM"
+    sentTime: "10:00 AM",
+    sentCount: 1
   }
   const roomId = '3'
   const currentUserId = '123'
@@ -54,7 +56,8 @@ describe('application reducer', function () {
       receiverId: "Room Id 222",
       type: "TEXT",
       body: "dummy text",
-      sentTime: "10:00 AM"
+      sentTime: "10:00 AM",
+      sentCount: 1
     }
 
     const result = messages(initialState, sharedStateMock(messageUpdate(updateMessage, roomId), currentUserId))
@@ -74,5 +77,30 @@ describe('application reducer', function () {
     const result = messages(initialState, sharedStateMock(messageDelete(message.id, roomId), currentUserId))
 
     expect(result).toEqual({ [currentUserId]: { messages: { [roomId]: [] } } })
+  })
+
+  it('should minus one to message sent count ', function () {
+    const initialState = {
+      [currentUserId]: {
+        messages: {
+          [roomId]: [message]
+        }
+      }
+    }
+
+    const updateMessage = {
+      id: "1",
+      senderId: "Profile Id",
+      receiverId: "Room Id",
+      type: "TEXT",
+      body: "dummy text",
+      sentTime: "10:00 AM",
+      status: "SENT",
+      sentCount: 0
+    }
+
+    const result = messages(initialState, sharedStateMock(messageSentCreate(message.id, roomId), currentUserId))
+
+    expect(result).toEqual({ [currentUserId]: { messages: {[roomId]: [updateMessage]} } })
   })
 })

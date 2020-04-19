@@ -53,7 +53,7 @@ export function socketConnect ({
     onProfileJoined,
     onProfileDisconnected,
     onMessageCreate,
-    onMessagesStatusUpdate,
+    onMessagesReceived,
     onTyping,
     onSignal,
     onErrorAuthenticate
@@ -129,7 +129,7 @@ export function socketConnect ({
   // set webRTC listeners
   webRTCListeners['onmessage'] = onMessageCreate
   webRTCListeners['onTyping'] = onTyping
-  webRTCListeners['onMessagesStatusUpdate'] = onMessagesStatusUpdate
+  webRTCListeners['onMessagesReceived'] = onMessagesReceived
 }
 
 export function apiDisconnect () {

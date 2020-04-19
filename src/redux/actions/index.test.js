@@ -17,6 +17,7 @@ import {
   MESSAGE_CREATE,
   MESSAGE_UPDATE,
   MESSAGE_DELETE,
+  MESSAGE_SENT_CREATE,
   CONNECTION_STATUS_ACTIVATE,
   CONNECTION_STATUS_DEACTIVATE
 } from '../ActionTypes'
@@ -40,6 +41,7 @@ import {
   messageCreate,
   messageUpdate,
   messageDelete,
+  messageSentCreate,
   connectionStatusActivate,
   connectionStatusDeactivate
 } from './index'
@@ -265,6 +267,18 @@ describe('Actions tests', function () {
   test('It should create an action to deactivate connection status', function () {
     expect(connectionStatusDeactivate()).toEqual({
       type: CONNECTION_STATUS_DEACTIVATE
+    })
+  })
+
+  test('It should create an action to add a seen number to a message', function () {
+    const messageId = '1234'
+    const roomId = '1234'
+    expect(messageSentCreate(messageId, roomId)).toEqual({
+      type: MESSAGE_SENT_CREATE,
+      payload: {
+        messageId,
+        roomId
+      }
     })
   })
 })

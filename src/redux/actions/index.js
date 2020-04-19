@@ -17,6 +17,7 @@ import {
   MESSAGE_CREATE,
   MESSAGE_UPDATE,
   MESSAGE_DELETE,
+  MESSAGE_SENT_CREATE,
   CONNECTION_STATUS_ACTIVATE,
   CONNECTION_STATUS_DEACTIVATE
 } from '../ActionTypes'
@@ -140,4 +141,12 @@ export const messageDelete = (messageId, roomId) => ({
       messageId,
       roomId
     }
+})
+
+export const messageSentCreate = (messageId, roomId) => ({
+  type: MESSAGE_SENT_CREATE,
+  payload: {
+    messageId,
+    roomId
+  }
 })

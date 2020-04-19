@@ -55,20 +55,6 @@ function Member (props) {
 class RoomInfo extends React.Component {
   state = genState(this.props)
 
-  onApiError = error => {
-    if (error.name === 'ValidationError') {
-      this.setState({
-        invalidFeedBacks: error.errors
-      })
-    } else if (error.name === 'RoomDuplicateError') {
-      this.setState({
-        invalidFeedBacks: {
-          newPublicId: 'This room is taken please select something else'
-        }
-      })
-    }
-  }
-
   componentDidUpdate(prevProps, prevState, snapshot) {
     if (prevProps.roomsActive.id !== this.props.roomsActive.id) {
       // reset state
@@ -93,16 +79,16 @@ class RoomInfo extends React.Component {
           <span className="fsz-sm fw-600 c-grey-900 pR-10">Name:</span>
           <span>{this.props.roomsActive.name}</span>
         </li>
-        <li className="pX-20 pT-15 pB-15">
+        <li className="pX-20 pT-10 pB-15">
           <span className="fsz-sm fw-600 c-grey-900 pR-10">Room Id:</span>
           <span>{this.props.roomsActive.publicId}</span>
         </li>
         <li className="pX-20 pY-15 bdB bdT">
           <i className="ti-face-smile pR-10"/>
-          <span className="fsz-sm fw-600 c-grey-900">Members</span>
+          <span className="fsz-sm fw-600 c-grey-900">Online Members</span>
         </li>
         {
-          this.props.roomActiveProfiles.map(profile => <Member key={profile.id} {...profile}/>)
+          this.props.roomActiveProfiles.filter(profile => profile.id).map(profile => <Member key={profile.id} {...profile}/>)
         }
       </ul>
     )

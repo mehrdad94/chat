@@ -7,7 +7,7 @@ import actionsSharedState from './middlewares/actionsSharedState'
 
 const persistConfig = {
   key: 'root',
-  version: '1',
+  version: '2',
   storage,
   migrate: createMigrate(migrations, { debug: true })
 }

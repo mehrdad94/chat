@@ -9,7 +9,7 @@ import constants from '../../../configs/constants.json'
 import { getProfiles, getProfilesCurrentUserId } from '../../../redux/reducers/profiles'
 import { getRoomActive, getRoomActiveStatus } from '../../../redux/reducers/rooms'
 import { getConnectionStatus } from '../../../redux/reducers/application'
-import { getNodeConnections } from '../../../helpers/treeModel'
+// import { getNodeConnections } from '../../../helpers/treeModel'
 
 const isDisconnected = status => status === constants.ROOM_STATUS[0]
 const isServerDisconnected = status => status === constants.CONNECTION_STATUS[0]
@@ -34,7 +34,7 @@ class ChatBoxTextArea extends React.Component {
   onKeyDown = async event => {
     const roomId = this.props.roomsActive.id
     const senderId = this.props.profileCurrentUserId
-    const receiverIds = getNodeConnections(roomId, senderId)
+    const receiverIds = this.props.roomsActive.meta.membersOnline.filter(id => id !== senderId) // getNodeConnections(roomId, senderId)
 
     // send typing message
     if (event.key === 'Enter') await this.onSendClick()
@@ -55,9 +55,9 @@ class ChatBoxTextArea extends React.Component {
   onSendClick = async () => {
     const roomId = this.props.roomsActive.id
     const senderId = this.props.profileCurrentUserId
-    const receiverIds = getNodeConnections(roomId, senderId)
+    const receiverIds = this.props.roomsActive.meta.membersOnline.filter(id => id !== senderId) // getNodeConnections(roomId, senderId)
 
-    const message = messageTextModel(this.state.message, senderId, roomId)
+    const message = messageTextModel(this.state.message, senderId, roomId, receiverIds.length)
     receiverIds.forEach(async receiverId => {
       this.props.messageCreate(message, roomId)
       eventManage.publish('USER_SENT_NEW_MESSAGE')
