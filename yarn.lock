@@ -6529,6 +6529,11 @@ lodash.uniq@^4.5.0:
   resolved "https://npm.jamko.ir/lodash/-/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
   integrity sha1-tEf2ZwoEVbv+7dETku/zMOoJdUg=
 
+loggly-jslogger@^2.2.2:
+  version "2.2.2"
+  resolved "https://npm.jamko.ir/loggly-jslogger/-/loggly-jslogger-2.2.2.tgz#f527e6c09c57587b4eb3852638ee1b3b3b77bc8b"
+  integrity sha1-9SfmwJxXWHtOs4UmOO4bOzt3vIs=
+
 loglevel@^1.6.6:
   version "1.6.6"
   resolved "https://npm.jamko.ir/loglevel/-/loglevel-1.6.6.tgz#0ee6300cc058db6b3551fa1c4bf73b83bb771312"

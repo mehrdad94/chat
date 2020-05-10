@@ -1,9 +1,9 @@
 import { request } from '../helpers/helper'
 import io from '../libs/socket.io'
-import roomModel from './models/room.model'
+import roomModel, { updateRoomModel } from './models/room.model'
 import profileModel from './models/profile.model'
 
-const baseUrl = 'http://localhost:3001'
+const baseUrl = 'https://api.privatechat.app' //http://localhost:3000'
 
 // handle token
 export function setToken (token) {
@@ -87,7 +87,7 @@ export function socketConnect ({
   })
 
   roomSocket.on('UPDATE', room => {
-    onRoomUpdate(roomModel(room))
+    onRoomUpdate(updateRoomModel(room))
   })
 
   roomSocket.on('DELETE', room => {

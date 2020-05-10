@@ -7,6 +7,7 @@ import logoImg from '../../static/images/logo.png'
 
 const genState = props => {
   const {
+    loading = false,
     redirect = false,
     email = '',
     password = '',
@@ -16,6 +17,7 @@ const genState = props => {
     }
   } = props
   return {
+    loading,
     redirect,
     email,
     password,
@@ -45,6 +47,7 @@ class Login extends React.Component {
   }
 
   login = () => {
+    this.setState({ loading: true })
     login({ email: this.state.email, password: this.state.password }).then(token => {
       // save token
       setToken(token)
@@ -64,6 +67,8 @@ class Login extends React.Component {
           }
         })
       }
+    }).then(() => {
+      this.setState({ loading: false })
     })
   }
 
@@ -114,7 +119,15 @@ class Login extends React.Component {
               <div className="form-group">
                 <div className="peers ai-c jc-sb fxw-nw">
                   <div className="peer">
-                    <button className="btn btn-primary" onClick={this.login}>Login</button>
+                    <button className="btn btn-primary" onClick={this.login} disabled={this.state.loading}>
+                      {
+                        this.state.loading ? (<span className="spinner-border spinner-border-sm mR-5" role="status" aria-hidden="true"/>) : null
+                      }
+                      Login
+                      {
+                        this.state.loading ? '...' : null
+                      }
+                    </button>
                   </div>
                 </div>
               </div>

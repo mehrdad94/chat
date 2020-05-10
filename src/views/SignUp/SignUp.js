@@ -10,6 +10,7 @@ import logoImg from '../../static/images/logo.png'
 
 const genState = props => {
   const {
+    loading = false,
     redirect = false,
     name = '',
     email = '',
@@ -24,6 +25,7 @@ const genState = props => {
     }
   } = props
   return {
+    loading,
     redirect,
     name,
     email,
@@ -54,6 +56,7 @@ class SignUp extends React.Component {
   }
 
   signUp = () => {
+    this.setState({ loading: true })
     signUp({
       name: this.state.name,
       email: this.state.email,
@@ -77,6 +80,8 @@ class SignUp extends React.Component {
           }
         })
       }
+    }).then(() => {
+      this.setState({ loading: false })
     })
   }
 
@@ -136,7 +141,15 @@ class SignUp extends React.Component {
                   onChange={ event => this.handleChange('rePassword', event) }/>
               </div>
               <div className="form-group">
-                <button className="btn btn-primary" onClick={this.signUp}>Register</button>
+                <button className="btn btn-primary" onClick={this.signUp}  disabled={this.state.loading}>
+                  {
+                    this.state.loading ? (<span className="spinner-border spinner-border-sm mR-5" role="status" aria-hidden="true"/>) : null
+                  }
+                  Register
+                  {
+                    this.state.loading ? '...' : null
+                  }
+                </button>
               </div>
             </div>
           </div>

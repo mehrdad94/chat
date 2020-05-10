@@ -74,7 +74,7 @@ class RoomCreate extends React.Component {
       <form>
         <div className="form-group">
           <FormInput
-            inputLabel={ 'Name' }
+            inputLabel={ 'Room Name' }
             inputValue={ this.state.name }
             inputAriaLabel={ 'InputRoomName' }
             invalidFeedback={ this.state.invalidFeedBacks.name }
@@ -83,7 +83,7 @@ class RoomCreate extends React.Component {
 
         <div className="form-group">
           <FormInput
-            inputLabel={ 'Choose a unique Id for your room' }
+            inputLabel={ 'Unique Id for your room, then share it with your friends!' }
             inputValue={ this.state.publicId }
             inputAriaLabel={ 'InputRoomPublicId' }
             invalidFeedback={ this.state.invalidFeedBacks.publicId }

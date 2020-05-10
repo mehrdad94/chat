@@ -1,6 +1,6 @@
 import { apiSendDescription, apiSendIceCandidate, getWebRTCListeners } from './index'
-import { getIceServers } from './webRTC_helpers'
-import { messageQueue } from '../helpers/helper'
+import { getIceServers, createPeerId, extractInfoFromPeerId } from './webRTC_helpers'
+import { queueRemove } from '../helpers/queue'
 import typingModel from './models/typing.model'
 import replyModel from './models/reply.model'
 
@@ -24,7 +24,7 @@ export function createPeerConnection({ peerId }) {
   const peerConnection = new RTCPeerConnection00(peerConnectionConfig)
 
   peerConnection.onicecandidate = ({ candidate }) => {
-    const [roomId, receiverId, senderId] = peerId.split('/')
+    const [roomId, receiverId, senderId] = extractInfoFromPeerId(peerId)
 
     if (candidate) apiSendIceCandidate(roomId, receiverId, senderId, candidate)
   }
@@ -38,7 +38,6 @@ export function createPeerConnection({ peerId }) {
   //   //   console.error(e)
   //   // }
   // }
-
   peerConnection.onconnectionstatechange = () => {
     switch(peerConnection.connectionState) {
       case 'connected':
@@ -73,7 +72,7 @@ export function createPeerConnection({ peerId }) {
 }
 
 function setChannelEvents ({ channel, peerId, onopen }) {
-  const [roomId, receiverId, senderId] = peerId.split('/')
+  const [roomId, receiverId, senderId] = extractInfoFromPeerId(peerId)
 
   channel.onmessage = async message => {
     const data = JSON.parse(message.data)
@@ -106,7 +105,7 @@ function setChannelEvents ({ channel, peerId, onopen }) {
         // sent message response
         getWebRTCListeners('onMessagesReceived')({ ...data })
 
-        messageQueue.onSuccess(data.messageId)
+        queueRemove({})
         break
       default:
         throw new Error('unknown data type')
@@ -158,7 +157,7 @@ export async function createOffer ({ peerId }) {
 
 export async function createAnswer ({roomId, receiverId, senderId, desc}) {
   // receiver is current user sender is opponent so we switch ids so in create message have save id
-  const peerId = `${roomId}/${senderId}/${receiverId}`
+  const peerId = createPeerId(roomId, senderId, receiverId)
 
   if (!peerConnections[peerId]) createPeerConnection({ peerId })
 
@@ -175,7 +174,7 @@ export async function createAnswer ({roomId, receiverId, senderId, desc}) {
 }
 
 export async function answer ({roomId, receiverId, senderId, desc}) {
-  const peerId = `${roomId}/${senderId}/${receiverId}`
+  const peerId = createPeerId(roomId, senderId, receiverId)
 
   const peerConnection = peerConnections[peerId]
 
@@ -183,7 +182,7 @@ export async function answer ({roomId, receiverId, senderId, desc}) {
 }
 
 export async function addIceCandidate ({roomId, receiverId, senderId, candidate}) {
-  const peerId = `${roomId}/${senderId}/${receiverId}`
+  const peerId = createPeerId(roomId, senderId, receiverId)
 
   const peerConnection = peerConnections[peerId]
 

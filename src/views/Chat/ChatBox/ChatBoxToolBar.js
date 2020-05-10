@@ -4,6 +4,7 @@ import constants from "../../../configs/constants"
 import { dialogActiveSet } from '../../../redux/actions'
 import { getRoomActive } from '../../../redux/reducers/rooms'
 import { getConnectionStatus } from '../../../redux/reducers/application'
+import { getProfilesCurrentUserId } from '../../../redux/reducers/profiles'
 
 const isServerDisconnected = status => status === constants.CONNECTION_STATUS[0]
 
@@ -76,21 +77,27 @@ class ChatBoxToolBar extends React.Component {
                       </button>
                     </li>
 
-                    <li onClick={this.onEditClick}>
-                      <button className="btn ta-l w-100 d-b td-n pY-5 bgcH-grey-100 c-grey-700"
-                              disabled={isServerDisconnected(this.props.connectionStatus)}>
-                        <i className="ti-pencil mR-10"/>
-                        <span>Edit Room</span>
-                      </button>
-                    </li>
+                    {
+                      this.props.profileCurrentUserId === this.props.roomsActive.creator ?
+                        <Fragment>
+                          <li onClick={this.onEditClick}>
+                            <button className="btn ta-l w-100 d-b td-n pY-5 bgcH-grey-100 c-grey-700"
+                                    disabled={isServerDisconnected(this.props.connectionStatus)}>
+                              <i className="ti-pencil mR-10"/>
+                              <span>Edit Room</span>
+                            </button>
+                          </li>
 
-                    <li onClick={this.onDeleteClick}>
-                      <button className="btn ta-l w-100 d-b td-n pY-5 bgcH-grey-100 c-grey-700"
-                              disabled={isServerDisconnected(this.props.connectionStatus)}>
-                        <i className="ti-trash mR-10"/>
-                        <span>Delete Room</span>
-                      </button>
-                    </li>
+                          <li onClick={this.onDeleteClick}>
+                            <button className="btn ta-l w-100 d-b td-n pY-5 bgcH-grey-100 c-grey-700"
+                                    disabled={isServerDisconnected(this.props.connectionStatus)}>
+                              <i className="ti-trash mR-10"/>
+                              <span>Delete Room</span>
+                            </button>
+                          </li>
+                        </Fragment>
+                       : null
+                    }
 
                     <li onClick={this.onCopyRoomIdClick}>
                       <button className="btn ta-l w-100 d-b td-n pY-5 bgcH-grey-100 c-grey-700">
@@ -111,6 +118,7 @@ class ChatBoxToolBar extends React.Component {
 
 const mapStateToProps = state => ({
   roomsActive: getRoomActive(state),
+  profileCurrentUserId: getProfilesCurrentUserId(state),
   connectionStatus: getConnectionStatus(state)
 })
 

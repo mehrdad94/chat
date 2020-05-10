@@ -3,7 +3,8 @@ import { connect } from 'react-redux'
 import { messageCreate } from '../../../redux/actions'
 import { sendMessage } from '../../../api/webRTC_experimental'
 import messageTextModel from '../../../api/models/messageText.model'
-import { eventManage, messageQueue } from '../../../helpers/helper'
+import { eventManage } from '../../../helpers/helper'
+import { queueAdd, queueRun } from '../../../helpers/queue'
 import { typingSentHelper } from '../../../helpers/helper'
 import constants from '../../../configs/constants.json'
 import { getProfiles, getProfilesCurrentUserId } from '../../../redux/reducers/profiles'
@@ -65,15 +66,18 @@ class ChatBoxTextArea extends React.Component {
       this.setState({
         message: ''
       })
-
-      messageQueue.add(message.id, async () => {
-        await sendMessage({
-          roomId,
-          receiverId,
-          senderId,
-          message
-        })
+      queueAdd({
+        task: async () => {
+          await sendMessage({
+            roomId,
+            receiverId,
+            senderId,
+            message
+          })
+        }
       })
+
+      queueRun({})
     })
   }
 

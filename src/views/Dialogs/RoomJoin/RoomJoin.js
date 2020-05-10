@@ -65,7 +65,7 @@ class RoomJoin extends React.Component {
       <form>
         <div className="form-group">
           <FormInput
-            inputLabel={ 'Insert room ID' }
+            inputLabel={ 'Room ID' }
             inputValue={ this.state.publicId }
             inputAriaLabel={ 'InputRoomPublicId' }
             invalidFeedback={ this.state.invalidFeedBacks.publicId }

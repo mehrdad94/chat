@@ -5,8 +5,8 @@ const Component = props => {
   return (
     <div className='pos-a t-0 l-0 bgc-white w-100 h-100 d-f fxd-r fxw-w ai-c jc-c pos-r p-30' style={{zIndex: props.zIndex || 1}}>
       <div className='d-f jc-c fxd-c'>
-        <h3 className='mB-10 fsz-lg c-grey-900 tt-c title'>{props.title}</h3>
-        <p className='mB-30 fsz-def c-grey-700 description'>{props.description}</p>
+        <h3 className='mB-10 fsz-lg c-grey-900 tt-c title' dangerouslySetInnerHTML={ { __html : props.title } }/>
+        <p className='mB-30 fsz-def c-grey-700 description' dangerouslySetInnerHTML={ { __html : props.description } }/>
       </div>
     </div>
   )

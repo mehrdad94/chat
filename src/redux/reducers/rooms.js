@@ -67,6 +67,11 @@ export default function rooms (state = initialState, action) {
     case ROOM_ONLINE_DELETE: {
       const index = state[action.meta.currentUserId].rooms.findIndex(x => x.id === action.payload.roomId)
 
+      if (index === -1) {
+        console.error(action)
+        return state
+      }
+
       const newState = update(state, {[action.meta.currentUserId]: {rooms: {[index]: { meta: { membersOnline: { $splice: [[index, 1]] } }} }}})
 
       const status = getRoomStatus(newState[action.meta.currentUserId].rooms[index])
@@ -75,7 +80,6 @@ export default function rooms (state = initialState, action) {
     }
     case ROOM_IS_TYPING: {
       const index = state[action.meta.currentUserId].rooms.findIndex(x => x.id === action.payload.roomId)
-
       if (state[action.meta.currentUserId].rooms[index].meta.membersTyping[action.payload.userId]) return state
       else return update(state, {[action.meta.currentUserId]: {rooms: {[index]: { meta: { membersTyping: {[action.payload.userId]: { $set: 1 }}}}}} })
     }

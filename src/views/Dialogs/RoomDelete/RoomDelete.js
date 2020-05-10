@@ -5,7 +5,7 @@ import constants from '../../../configs/constants'
 import { dialogActiveSet } from '../../../redux/actions'
 import { apiRoomDelete } from '../../../api'
 import { getDialogActive } from '../../../redux/reducers/application'
-import { getRooms } from '../../../redux/reducers/rooms'
+import { getRoomActive } from '../../../redux/reducers/rooms'
 
 const deleteConfirmModalQuestion = 'Are you sure that you want to delete this Room?'
 
@@ -44,7 +44,7 @@ class RoomDelete extends React.Component {
 
 const mapStateToProps = state => ({
   dialogActive: getDialogActive(state),
-  roomsActive: getRooms(state)
+  roomsActive: getRoomActive(state)
 })
 
 const mapDispatchToProps = dispatch => {

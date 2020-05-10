@@ -1,6 +1,5 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import './App.scss'
-import * as $ from 'jquery'
 import {
   BrowserRouter as Router,
   Switch,
@@ -18,19 +17,21 @@ import Chat from './views/Chat/Chat'
 class App extends React.Component {
   render() {
     return (
-      <Router>
-        <Switch>
-          <Route path="/login">
-            <Login/>
-          </Route>
-          <Route path="/signup">
-            <SignUp/>
-          </Route>
-          <PrivateRoute path="/">
-            <Chat/>
-          </PrivateRoute>
-        </Switch>
-      </Router>
+      <Fragment>
+        <Router>
+          <Switch>
+            <Route path="/login">
+              <Login/>
+            </Route>
+            <Route path="/signup">
+              <SignUp/>
+            </Route>
+            <PrivateRoute path="/">
+              <Chat/>
+            </PrivateRoute>
+          </Switch>
+        </Router>
+      </Fragment>
     )
   }
 }

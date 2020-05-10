@@ -99,8 +99,8 @@ class Chat extends React.Component {
         this.props.profileCurrentUserCreate('')
       },
       onProfileCurrentUser: user => {
-        this.props.profileCreate(user)
         this.props.profileCurrentUserCreate(user.id)
+        this.props.profileCreate(user)
         this.props.connectionStatusActivate()
       },
       onProfileJoined: (user, roomId) => {
@@ -120,6 +120,8 @@ class Chat extends React.Component {
       },
       onMessagesReceived: ({ roomId, messageId }) => {
         this.props.messageSentCreate(messageId, roomId)
+
+        eventManage.publish('ON_MESSAGE_STATUS_CHANGE', { roomId })
       },
       onTyping: ({roomId, userId}) => {
         typingReceivedHelper(roomId, userId, () => {
@@ -129,6 +131,8 @@ class Chat extends React.Component {
         })
       },
       onSignal: async ({roomId, receiverId, senderId, desc, candidate}) => {
+        console.log('desc', desc)
+        console.log('candidate', candidate)
         if (desc) {
           if (desc.type === 'offer') {
             await createAnswer({ roomId, receiverId, senderId, desc })

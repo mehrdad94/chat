@@ -18,6 +18,7 @@ let scrollableElement
 class ChatBoxMessages extends React.Component {
   constructor (props) {
     super(props)
+    this.virtualizedRef = React.createRef()
   }
 
   state = {
@@ -84,6 +85,12 @@ class ChatBoxMessages extends React.Component {
       this.scrollDown()
     })
 
+    eventManage.subscribe('ON_MESSAGE_STATUS_CHANGE', () => {
+      setTimeout(() => {
+        this.virtualizedRef.current.forceUpdateGrid()
+      })
+    })
+
     if (this.props.roomsActiveId) this.scrollDown()
 
     scrollableElement.addEventListener('ps-scroll-y', () => {
@@ -107,6 +114,7 @@ class ChatBoxMessages extends React.Component {
           {({height, width}) => (
             <List className="p-20 scrollable pos-r"
                   id="chatBoxScrollable"
+                  ref={this.virtualizedRef}
                   height={height}
                   width={width}
                   rowHeight={cache.rowHeight}
@@ -119,7 +127,7 @@ class ChatBoxMessages extends React.Component {
         {
           this.state.isScrollDown ? null : (
             <button type="button" className="btn pos-a cur-p btn-light bdrs-50p w-2r p-0 h-2r pos-a b-20 r-20" onClick={this.scrollDown}>
-              <span className="notification-counter bgc-red pos-a b-20 r-20">3</span>
+              {/*<span className="notification-counter bgc-red pos-a b-20 r-20">3</span>*/}
               <i className="fa fa-arrow-down"/>
             </button>
           )
@@ -134,17 +142,14 @@ function MessageUserBody (props) {
     <div className="layer">
       <div className="peers fxw-nw ai-c pY-3 pX-10 bgc-white bdrs-2 lh-3/2">
         <div className="peer-greed ord-0">
-          <i className='c-blue-grey-900'>{props.name}</i>
+          <span>{props.body}</span>
         </div>
       </div>
+
       <div className="peers fxw-nw ai-c pY-3 pX-10 bgc-white bdrs-2 lh-3/2">
-        <div className="peer mL-10 ord-1">
+        <div className="peer-greed ord-0 ta-r">
           <small>{props.sentTime}</small>
           <MessageStatus status={props.status}/>
-        </div>
-
-        <div className="peer-greed ord-0">
-          <span>{props.body}</span>
         </div>
       </div>
     </div>
@@ -155,16 +160,16 @@ function MessagePartnerBody (props) {
   return (
     <div className="layer">
       <div className="peers fxw-nw ai-c pY-3 pX-10 bgc-white bdrs-2 lh-3/2">
-        <div className="peer-greed ta-r">
-          <i className='c-blue-grey-900'>{props.name}</i>
+        <div className="peer-greed">
+          <span>{props.name}</span>
         </div>
       </div>
       <div className="peers fxw-nw ai-c pY-3 pX-10 bgc-white bdrs-2 lh-3/2">
-        <div className="peer mR-10">
-          <small>{props.sentTime}</small>
-        </div>
         <div className="peer-greed">
-          <span>{props.body}</span>
+          <span className="c-blue-grey-900">{props.body}</span>
+        </div>
+        <div className="peer pL-10 ta-r">
+          <small>{props.sentTime}</small>
         </div>
       </div>
     </div>

@@ -14,7 +14,7 @@ class ChatBox extends React.Component {
       <div className="peer peer-greed" id="chat-box">
         <div className="layers h-100 pos-r">
           <Unavailable isActive={!this.props.roomsActive.publicId}
-                       title={'Please create or select a room!'}
+                       title={'Please create or join a room!'}
                        description={'From top left corner you can create a room or join a room.'}/>
 
           <ChatBoxToolBar/>
