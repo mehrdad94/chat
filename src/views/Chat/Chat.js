@@ -123,6 +123,12 @@ class Chat extends React.Component {
 
         eventManage.publish('ON_MESSAGE_STATUS_CHANGE', { roomId })
       },
+      onRTCConnectionStateConnected: ({ state, peerId }) => {
+        eventManage.publish('ON_RTC_CONNECTION_STATE_CONNECTED', { state, peerId })
+      },
+      onRTCConnectionStateFailed: ({ state, peerId }) => {
+        eventManage.publish('ON_RTC_CONNECTION_STATE_FAILED', { state, peerId })
+      },
       onTyping: ({roomId, userId}) => {
         typingReceivedHelper(roomId, userId, () => {
           this.props.roomIsTyping(roomId, userId)
@@ -131,8 +137,6 @@ class Chat extends React.Component {
         })
       },
       onSignal: async ({roomId, receiverId, senderId, desc, candidate}) => {
-        console.log('desc', desc)
-        console.log('candidate', candidate)
         if (desc) {
           if (desc.type === 'offer') {
             await createAnswer({ roomId, receiverId, senderId, desc })

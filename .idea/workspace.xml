@@ -5,36 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ddd7c153-8baa-4fe6-9770-1e28ef6dbcbe" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/ErrorBoundry/ErrorBoundry.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/helpers/logger.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/helpers/queue.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/helpers/queue.test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/helpers/taskRunner.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/helpers/taskRunner.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/chat.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/chat.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/helpers/peerConnectionsStatus.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/api/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/models/profile.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/models/profile.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/models/room.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/models/room.model.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/api/webRTC_experimental.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/webRTC_experimental.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/webRTC_helpers.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/webRTC_helpers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Unavailable/Unavailable.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Unavailable/Unavailable.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/helpers/helper.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/helpers/helper.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/reducers/rooms.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/rooms.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/Chat/Chat.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Chat/Chat.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Chat/ChatBox/ChatBox.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Chat/ChatBox/ChatBox.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Chat/ChatBox/ChatBoxMessages.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Chat/ChatBox/ChatBoxMessages.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/Chat/ChatBox/ChatBoxTextArea.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Chat/ChatBox/ChatBoxTextArea.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Chat/ChatBox/ChatBoxToolBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Chat/ChatBox/ChatBoxToolBar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Dialogs/RoomCreate/RoomCreate.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Dialogs/RoomCreate/RoomCreate.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Dialogs/RoomDelete/RoomDelete.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Dialogs/RoomDelete/RoomDelete.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Dialogs/RoomJoin/RoomJoin.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Dialogs/RoomJoin/RoomJoin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Login/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Login/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/SignUp/SignUp.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/SignUp/SignUp.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -47,11 +23,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/api/webRTC_experimental.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="1" lean-forward="true" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
+            <state relative-caret-position="-153">
+              <caret line="46" column="27" lean-forward="true" selection-start-line="46" selection-start-column="27" selection-end-line="46" selection-end-column="27" />
               <folding>
                 <element signature="e#0#85#0" expanded="true" />
               </folding>
@@ -59,14 +35,44 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/views/Chat/Chat.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="183">
-              <caret line="137" column="26" selection-start-line="137" selection-start-column="26" selection-end-line="137" selection-end-column="26" />
+            <state relative-caret-position="187">
+              <caret line="11" column="13" lean-forward="true" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/api/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="12" column="29" lean-forward="true" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
               <folding>
-                <element signature="e#0#39#0" expanded="true" />
+                <element signature="e#0#43#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/views/Chat/ChatBox/ChatBoxTextArea.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-321">
+              <caret line="68" column="8" selection-start-line="68" selection-start-column="7" selection-end-line="68" selection-end-column="8" />
+              <folding>
+                <element signature="e#0#25#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/helpers/peerConnectionsStatus.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
             </state>
           </provider>
         </entry>
@@ -74,8 +80,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/views/Chat/ChatBox/ChatBoxMessages.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3638">
-              <caret line="223" column="17" lean-forward="true" selection-start-line="223" selection-start-column="17" selection-end-line="223" selection-end-column="17" />
+            <state relative-caret-position="1445">
+              <caret line="94" lean-forward="true" selection-start-line="94" selection-end-line="94" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -86,8 +92,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/views/Chat/ChatBox/ChatBox.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
+            <state relative-caret-position="221">
+              <caret line="21" column="19" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="19" />
               <folding>
                 <element signature="e#0#25#0" expanded="true" />
               </folding>
@@ -98,8 +104,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/views/Dialogs/RoomCreate/RoomCreate.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1583">
-              <caret line="125" column="2" lean-forward="true" selection-start-line="125" selection-start-column="2" selection-end-line="125" selection-end-column="2" />
+            <state relative-caret-position="1989">
+              <caret line="125" column="2" selection-start-line="125" selection-start-column="2" selection-end-line="125" selection-end-column="2" />
               <folding>
                 <element signature="e#37#62#0" expanded="true" />
               </folding>
@@ -128,29 +134,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/App.scss">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>peerid</find>
-      <find>.split</find>
-      <find>ROOM_ONLINE_DELETE</find>
-      <find>status</find>
-      <find>onMessagesReceived</find>
-      <find>eventManage</find>
-      <find>$merge</find>
-      <find>Bearer</find>
-      <find>http://</find>
-      <find>profileCreate</find>
-      <find>profileCurrentUser</find>
-      <find>profileCurrentUserCreate</find>
-      <find>ON_MESSAGE_STATUS_CHANGE</find>
-      <find>forceU</find>
       <find>console</find>
       <find>una</find>
       <find>Please Create Or Select A Room</find>
@@ -164,9 +151,23 @@
       <find>return</find>
       <find>.setLocalDescription</find>
       <find>createOFf</find>
-      <find>glare</find>
       <find>retur</find>
       <find>addI</find>
+      <find>glare</find>
+      <find>create</find>
+      <find>RTCSessionDescription</find>
+      <find>setREmote</find>
+      <find>RTCIceCandidate</find>
+      <find>addICe</find>
+      <find>connectionState</find>
+      <find>extractInfoFromPeerId</find>
+      <find>called</find>
+      <find>onRTCConnectionStateConnected</find>
+      <find>close</find>
+      <find>if (dataChannels[peerId].readyState === '</find>
+      <find>checkDataChannelReadyState</find>
+      <find>console.</find>
+      <find>100vh</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -201,8 +202,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/redux/reducers/application.js" />
-        <option value="$PROJECT_DIR$/src/helpers/treeNetwork.js" />
         <option value="$PROJECT_DIR$/src/helpers/treeModel.js" />
         <option value="$PROJECT_DIR$/src/helpers/treeModel.test.js" />
         <option value="$PROJECT_DIR$/src/api/models/interNetworkMessage.model.js" />
@@ -230,7 +229,6 @@
         <option value="$PROJECT_DIR$/src/helpers/taskRunner.js" />
         <option value="$PROJECT_DIR$/src/helpers/taskRunner.test.js" />
         <option value="$PROJECT_DIR$/src/helpers/queue.js" />
-        <option value="$PROJECT_DIR$/src/views/Chat/ChatBox/ChatBoxTextArea.js" />
         <option value="$PROJECT_DIR$/src/helpers/logger.js" />
         <option value="$PROJECT_DIR$/src/components/ErrorBoundry/ErrorBoundry.js" />
         <option value="$PROJECT_DIR$/src/index.js" />
@@ -242,16 +240,19 @@
         <option value="$PROJECT_DIR$/src/views/Chat/ChatBox/ChatBoxToolBar.js" />
         <option value="$PROJECT_DIR$/src/views/Dialogs/RoomDelete/RoomDelete.js" />
         <option value="$PROJECT_DIR$/src/redux/reducers/rooms.js" />
-        <option value="$PROJECT_DIR$/src/api/index.js" />
         <option value="$PROJECT_DIR$/src/api/models/profile.model.js" />
         <option value="$PROJECT_DIR$/src/api/models/room.model.js" />
-        <option value="$PROJECT_DIR$/src/views/Chat/ChatBox/ChatBoxMessages.js" />
         <option value="$PROJECT_DIR$/src/components/Unavailable/Unavailable.js" />
         <option value="$PROJECT_DIR$/src/views/Chat/ChatBox/ChatBox.js" />
         <option value="$PROJECT_DIR$/src/views/Dialogs/RoomCreate/RoomCreate.js" />
         <option value="$PROJECT_DIR$/src/views/Dialogs/RoomJoin/RoomJoin.js" />
-        <option value="$PROJECT_DIR$/src/views/Chat/Chat.js" />
+        <option value="$PROJECT_DIR$/src/libs/RTCPeerConnection-v1.5.js" />
+        <option value="$PROJECT_DIR$/src/views/Chat/ChatBox/ChatBoxMessages.js" />
+        <option value="$PROJECT_DIR$/src/views/Chat/ChatBox/ChatBoxTextArea.js" />
+        <option value="$PROJECT_DIR$/src/helpers/peerConnectionsStatus.js" />
+        <option value="$PROJECT_DIR$/src/api/index.js" />
         <option value="$PROJECT_DIR$/src/api/webRTC_experimental.js" />
+        <option value="$PROJECT_DIR$/src/views/Chat/Chat.js" />
       </list>
     </option>
   </component>
@@ -290,6 +291,18 @@
               <item name="chat" type="b2602c69:ProjectViewProjectNode" />
               <item name="chat" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="helpers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="chat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="chat" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="libs" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="chat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="chat" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -298,6 +311,14 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="Chat" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="chat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="chat" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="Chat" type="462c0819:PsiDirectoryNode" />
+              <item name="ChatBox" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="chat" type="b2602c69:ProjectViewProjectNode" />
@@ -500,8 +521,18 @@
       <workItem from="1589095392199" duration="1358000" />
       <workItem from="1589105703182" duration="4857000" />
       <workItem from="1589124795199" duration="1935000" />
-      <workItem from="1589141763028" duration="6732000" />
+      <workItem from="1589141763028" duration="8064000" />
+      <workItem from="1589185928458" duration="3954000" />
+      <workItem from="1589226194119" duration="3622000" />
     </task>
+    <task id="LOCAL-00001" summary="fix lots of stuff">
+      <created>1589150924855</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1589150924855</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -537,12 +568,34 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="338533000" />
+    <option name="totallyTimeSpent" value="347441000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.7670068" visible="true" weight="0.21056548" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="npm" order="2" sideWeight="0.2329932" side_tool="true" weight="0.21056548" />
+      <window_info id="Favorites" order="3" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.35034013" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39965987" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32993197" />
+      <window_info anchor="bottom" id="GraphQL" order="9" weight="0.32993197" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.32993197" />
+      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.25" />
+      <window_info anchor="bottom" id="TypeScript" order="12" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+    <layout-to-restore>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.7670068" visible="true" weight="0.21056548" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" sideWeight="0.2329932" side_tool="true" weight="0.21056548" />
@@ -558,29 +611,8 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32993197" />
       <window_info anchor="bottom" id="GraphQL" order="9" weight="0.32993197" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.32993197" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.25" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.25" />
       <window_info anchor="bottom" id="TypeScript" order="12" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-    </layout>
-    <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22098215" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="npm" order="2" side_tool="true" />
-      <window_info id="Favorites" order="3" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.49829933" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39965987" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32993197" />
-      <window_info anchor="bottom" id="GraphQL" order="9" weight="0.32993197" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.32993197" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.3112245" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -588,6 +620,12 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <MESSAGE value="fix lots of stuff" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix lots of stuff" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -705,33 +743,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/redux/reducers/messages.test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="98" column="8" lean-forward="true" selection-start-line="98" selection-start-column="8" selection-end-line="98" selection-end-column="8" />
-          <folding>
-            <element signature="e#0#33#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/redux/migrations.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="33" selection-start-line="12" selection-start-column="33" selection-end-line="12" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/redux/store.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#52#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/redux/actions/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
@@ -849,13 +860,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/helpers/helper.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="782">
-          <caret line="46" column="16" selection-start-line="46" selection-start-column="16" selection-end-line="46" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -881,16 +885,6 @@
           <caret line="119" column="24" selection-start-line="119" selection-start-column="24" selection-end-line="119" selection-end-column="24" />
           <folding>
             <element signature="e#0#27#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/Chat/ChatBox/ChatBoxTextArea.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-663">
-          <caret line="12" column="46" selection-start-line="12" selection-start-column="46" selection-end-line="12" selection-end-column="46" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -988,16 +982,6 @@
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -1042,10 +1026,41 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/libs/socket.io.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-column="20" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.scss">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/libs/RTCPeerConnection-v1.5.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="220" column="27" selection-start-line="220" selection-start-column="27" selection-end-line="223" selection-end-column="8" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!block;n#getUserMedia#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/helpers/helper.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="782">
+          <caret line="46" column="16" selection-start-line="46" selection-start-column="16" selection-end-line="46" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/views/Chat/ChatBox/ChatBoxMessages.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3638">
-          <caret line="223" column="17" lean-forward="true" selection-start-line="223" selection-start-column="17" selection-end-line="223" selection-end-column="17" />
+        <state relative-caret-position="1445">
+          <caret line="94" lean-forward="true" selection-start-line="94" selection-end-line="94" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
@@ -1054,10 +1069,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/views/Chat/ChatBox/ChatBox.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
+        <state relative-caret-position="221">
+          <caret line="21" column="19" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="19" />
           <folding>
             <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/Dialogs/RoomCreate/RoomCreate.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1989">
+          <caret line="125" column="2" selection-start-line="125" selection-start-column="2" selection-end-line="125" selection-end-column="2" />
+          <folding>
+            <element signature="e#37#62#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1079,36 +1104,47 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.scss">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/Dialogs/RoomCreate/RoomCreate.js">
+    <entry file="file://$PROJECT_DIR$/src/views/Chat/ChatBox/ChatBoxTextArea.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1583">
-          <caret line="125" column="2" lean-forward="true" selection-start-line="125" selection-start-column="2" selection-end-line="125" selection-end-column="2" />
+        <state relative-caret-position="-321">
+          <caret line="68" column="8" selection-start-line="68" selection-start-column="7" selection-end-line="68" selection-end-column="8" />
           <folding>
-            <element signature="e#37#62#0" expanded="true" />
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="29" lean-forward="true" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/helpers/peerConnectionsStatus.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/webRTC_experimental.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-153">
+          <caret line="46" column="27" lean-forward="true" selection-start-line="46" selection-start-column="27" selection-end-line="46" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#85#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/views/Chat/Chat.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="137" column="26" selection-start-line="137" selection-start-column="26" selection-end-line="137" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/webRTC_experimental.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="1" lean-forward="true" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
-          <folding>
-            <element signature="e#0#85#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="187">
+          <caret line="11" column="13" lean-forward="true" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
         </state>
       </provider>
     </entry>

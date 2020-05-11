@@ -3,8 +3,10 @@ import { getIceServers, createPeerId, extractInfoFromPeerId } from './webRTC_hel
 import { queueRemove } from '../helpers/queue'
 import typingModel from './models/typing.model'
 import replyModel from './models/reply.model'
-
 import constants from '../configs/constants.json'
+
+const RTCSessionDescription = window.RTCSessionDescription || window.mozRTCSessionDescription
+const RTCIceCandidate = window.RTCIceCandidate || window.mozRTCIceCandidate
 
 let RTCPeerConnection00
 if (typeof window.RTCPeerConnection !== 'undefined') {
@@ -19,6 +21,8 @@ const peerConnectionConfig = { iceServers: getIceServers() }
 
 const peerConnections = {}
 const dataChannels = {}
+const peerConnectionDoubleChannelCreate = {} // prevent creating more than one offer, ...
+const peerConnectionDoubleOfferCreate = {}
 
 export function createPeerConnection({ peerId }) {
   const peerConnection = new RTCPeerConnection00(peerConnectionConfig)
@@ -29,33 +33,23 @@ export function createPeerConnection({ peerId }) {
     if (candidate) apiSendIceCandidate(roomId, receiverId, senderId, candidate)
   }
 
-  // peerConnection.onnegotiationneeded = async function () {
-  //   // try {
-  //   //   await peerConnection.setLocalDescription(await peerConnection.createOffer())
-  //   //
-  //   //   onLocalDescription(peerConnection.localDescription)
-  //   // } catch (e) {
-  //   //   console.error(e)
-  //   // }
-  // }
   peerConnection.onconnectionstatechange = () => {
     switch(peerConnection.connectionState) {
       case 'connected':
         // The connection has become fully connected
+        getWebRTCListeners('onRTCConnectionStateConnected')({ state: peerConnection.connectionState, peerId })
         break
       case 'disconnected':
       case 'failed':
+      case 'closed':
         peerConnections[peerId].close()
-        dataChannels[peerId].close()
+        if (dataChannels[peerId]) dataChannels[peerId].close()
         // stop streams too
         delete peerConnections[peerId]
         delete dataChannels[peerId]
-        break
-      case 'closed':
-        dataChannels[peerId].close()
-        delete peerConnections[peerId]
-        delete dataChannels[peerId]
-        // The connection has been closed
+        delete peerConnectionDoubleChannelCreate[peerId]
+        delete peerConnectionDoubleOfferCreate[peerId]
+        getWebRTCListeners('onRTCConnectionStateFailed')({ state: peerConnection.connectionState, peerId })
         break
       default:
         break;
@@ -128,18 +122,21 @@ function setChannelEvents ({ channel, peerId, onopen }) {
 
 export function createDataChannel (peerId, channelName = 'sctp-channel') {
   return new Promise((resolve) => {
-    if (dataChannels[peerId]) {
+    function checkDataChannelReadyState () {
       if (dataChannels[peerId].readyState === 'open') resolve(dataChannels[peerId])
-      else return
+      else setTimeout(checkDataChannelReadyState, 1000)
     }
 
-    dataChannels[peerId] = peerConnections[peerId].createDataChannel(channelName, {})
+    if (dataChannels[peerId]) {
+      checkDataChannelReadyState()
+    } else if (!peerConnectionDoubleChannelCreate[peerId]) {
+      console.log('data channel create')
+      peerConnectionDoubleChannelCreate[peerId] = true
 
-    function onChannelOpen(channel) {
-      resolve(channel)
+      dataChannels[peerId] = peerConnections[peerId].createDataChannel(channelName, {})
+
+      setChannelEvents({ channel: dataChannels[peerId], peerId, onopen: (channel) => { resolve (channel) } })
     }
-
-    setChannelEvents({ channel: dataChannels[peerId], peerId, onopen: onChannelOpen })
   })
 }
 
@@ -163,7 +160,7 @@ export async function createAnswer ({roomId, receiverId, senderId, desc}) {
 
   const peerConnection = peerConnections[peerId]
 
-  await peerConnection.setRemoteDescription(desc)
+  await peerConnection.setRemoteDescription(new RTCSessionDescription(desc))
 
   const localDesc = await peerConnection.createAnswer()
 
@@ -178,7 +175,7 @@ export async function answer ({roomId, receiverId, senderId, desc}) {
 
   const peerConnection = peerConnections[peerId]
 
-  await peerConnection.setRemoteDescription(desc)
+  await peerConnection.setRemoteDescription(new RTCSessionDescription(desc))
 }
 
 export async function addIceCandidate ({roomId, receiverId, senderId, candidate}) {
@@ -188,7 +185,10 @@ export async function addIceCandidate ({roomId, receiverId, senderId, candidate}
 
   if (!peerConnection) throw new Error('unknown candidate')
 
-  peerConnection.addIceCandidate(candidate).then(() => {
+  peerConnection.addIceCandidate(new RTCIceCandidate({
+    sdpMLineIndex: candidate.sdpMLineIndex,
+    candidate: candidate.candidate
+  })).then(() => {
   }).catch(error => {
     console.error('Ice candidate failed', error)
   })
@@ -205,5 +205,8 @@ export async function sendMessage ({ roomId, receiverId, senderId, ownerId = sen
     else if (type === constants.DATA_CHANNEL_MESSAGE_TYPES[1]) channel.send(JSON.stringify(replyModel(roomId, message.id)))
   })
 
-  if (peerConnections[peerId].iceConnectionState === 'new') await createOffer({ peerId })
+  if (peerConnections[peerId].iceConnectionState === 'new' && !peerConnectionDoubleOfferCreate[peerId]) {
+    peerConnectionDoubleOfferCreate[peerId] = true
+    await createOffer({ peerId })
+  }
 }

@@ -3,7 +3,7 @@ import io from '../libs/socket.io'
 import roomModel, { updateRoomModel } from './models/room.model'
 import profileModel from './models/profile.model'
 
-const baseUrl = 'https://api.privatechat.app' //http://localhost:3000'
+const baseUrl = 'http://localhost:3000' // 'https://api.privatechat.app'
 
 // handle token
 export function setToken (token) {
@@ -54,6 +54,8 @@ export function socketConnect ({
     onProfileDisconnected,
     onMessageCreate,
     onMessagesReceived,
+    onRTCConnectionStateConnected,
+    onRTCConnectionStateFailed,
     onTyping,
     onSignal,
     onErrorAuthenticate
@@ -130,6 +132,8 @@ export function socketConnect ({
   webRTCListeners['onmessage'] = onMessageCreate
   webRTCListeners['onTyping'] = onTyping
   webRTCListeners['onMessagesReceived'] = onMessagesReceived
+  webRTCListeners['onRTCConnectionStateConnected'] = onRTCConnectionStateConnected
+  webRTCListeners['onRTCConnectionStateFailed'] = onRTCConnectionStateFailed
 }
 
 export function apiDisconnect () {

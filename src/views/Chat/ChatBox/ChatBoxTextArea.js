@@ -10,6 +10,7 @@ import constants from '../../../configs/constants.json'
 import { getProfiles, getProfilesCurrentUserId } from '../../../redux/reducers/profiles'
 import { getRoomActive, getRoomActiveStatus } from '../../../redux/reducers/rooms'
 import { getConnectionStatus } from '../../../redux/reducers/application'
+
 // import { getNodeConnections } from '../../../helpers/treeModel'
 
 const isDisconnected = status => status === constants.ROOM_STATUS[0]
@@ -78,6 +79,11 @@ class ChatBoxTextArea extends React.Component {
       })
 
       queueRun({})
+    })
+  }
+
+  componentDidMount() {
+    eventManage.subscribe('ON_RTC_CONNECTION_STATE_CONNECTED', ({ peerId }) => {
     })
   }
 
