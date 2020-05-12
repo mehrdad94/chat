@@ -38,7 +38,7 @@
 }
 
 .remain-height {
-  height: calc(100vh - 126px);
+  height: calc(100% - 126px);
 }
 
 // ---------------------------------------------------------
@@ -47,7 +47,7 @@
 
 .full-container {
   left: $offscreen-size;
-  min-height: calc(100vh - #{$header-height});
+  min-height: calc(100% - #{$header-height});
   position: absolute;
   right: 0;
   top: $header-height;

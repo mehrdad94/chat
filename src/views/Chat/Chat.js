@@ -164,10 +164,10 @@ class Chat extends React.Component {
             <div className="page-container h-100">
               <Header/>
 
-              <main className='main-content bgc-grey-100'>
-                <div id='mainContent'>
+              <main className="main-content bgc-grey-100">
+                <div id="mainContent" className="h-100p">
                   <div className="full-container pl-0">
-                    <div className="peers fxw-nw pos-r">
+                    <div className="peers fxw-nw pos-a h-100p w-100p">
                       <Sidebar/>
 
                       <ChatBox/>

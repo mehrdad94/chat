@@ -81,7 +81,7 @@ class Login extends React.Component {
       <Fragment>
         { this.renderRedirect() }
 
-        <div className="peers ai-s fxw-nw h-100vh">
+        <div className="peers ai-s fxw-nw h-100p">
           <div className="d-n@sm- peer peer-greed h-100 pos-r bgr-n bgpX-c bgpY-c bgsz-cv"
                style={{backgroundImage: `url(${backgroundImg})`}}>
             <div className="pos-a centerXY">
