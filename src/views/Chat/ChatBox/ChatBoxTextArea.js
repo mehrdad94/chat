@@ -55,6 +55,7 @@ class ChatBoxTextArea extends React.Component {
   }
 
   onSendClick = async () => {
+    if (!this.state.message.trim()) return
     const roomId = this.props.roomsActive.id
     const senderId = this.props.profileCurrentUserId
     const receiverIds = this.props.roomsActive.meta.membersOnline.filter(id => id !== senderId) // getNodeConnections(roomId, senderId)

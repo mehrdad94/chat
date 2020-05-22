@@ -30,7 +30,17 @@ if (rootElement.hasChildNodes()) {
   render(<RenderContent />, rootElement)
 }
 
-serviceWorker.register()
+serviceWorker.register({
+  onUpdate: registration => {
+    console.log('find me')
+    if (window.confirm('New version available!  Ready to update?')) {
+      if (registration && registration.waiting) {
+        registration.waiting.postMessage({ type: 'SKIP_WAITING' })
+      }
+      window.location.reload()
+    }
+  }
+})
 
 window.addEventListener('error', function (event) {
   logger.push({ info: { message: event.message, fileName: event.filename, lineNo: event.lineno } })

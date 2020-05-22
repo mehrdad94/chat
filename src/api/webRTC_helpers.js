@@ -9,7 +9,7 @@ export const getIceServers = () => {
   }, {
     urls: 'turn:turn.privatechat.app:5349',
     username: 'brucewayne',
-    credential: '12345'
+    credential: 'brucewayne'
   }]
 
   return iceServers;

@@ -42,13 +42,8 @@ export function createPeerConnection({ peerId }) {
       case 'disconnected':
       case 'failed':
       case 'closed':
-        peerConnections[peerId].close()
-        if (dataChannels[peerId]) dataChannels[peerId].close()
-        // stop streams too
-        delete peerConnections[peerId]
-        delete dataChannels[peerId]
-        delete peerConnectionDoubleChannelCreate[peerId]
-        delete peerConnectionDoubleOfferCreate[peerId]
+        closeAPeer(peerId)
+
         getWebRTCListeners('onRTCConnectionStateFailed')({ state: peerConnection.connectionState, peerId })
         break
       default:
@@ -116,13 +111,28 @@ function setChannelEvents ({ channel, peerId, onopen }) {
   }
 
   channel.onerror = event => {
+    if (event.target.readyState === 'closed') {
+      if (dataChannels[peerId]) delete dataChannels[peerId]
+    }
     console.error('WebRTC DataChannel error', event)
   }
 }
+export function closeAPeer (peerId) {
+  if (!peerConnections[peerId]) return
+
+  peerConnections[peerId].close()
+  if (dataChannels[peerId]) dataChannels[peerId].close()
+  // stop streams too
+  delete peerConnections[peerId]
+  delete dataChannels[peerId]
+  delete peerConnectionDoubleChannelCreate[peerId]
+  delete peerConnectionDoubleOfferCreate[peerId]
+}
 
 export function createDataChannel (peerId, channelName = 'sctp-channel') {
-  return new Promise((resolve) => {
+  return new Promise((resolve, reject) => {
     function checkDataChannelReadyState () {
+      if (!dataChannels[peerId]) reject('Data Channel does not exist')
       if (dataChannels[peerId].readyState === 'open') resolve(dataChannels[peerId])
       else setTimeout(checkDataChannelReadyState, 1000)
     }

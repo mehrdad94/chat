@@ -31,9 +31,10 @@ export const queueRemove = ({queueType = QUEUES_TYPES[0]}) => {
   queueRun({ queueType })
 }
 
+const shouldStopQueue = (queueType) => (!queues[queueType].tasks.length || queues[queueType].timeout)
 
 export const queueRun = ({queueType = QUEUES_TYPES[0]}) => {
-  if (!queues[queueType].tasks.length || queues[queueType].timeout) return
+  if (shouldStopQueue(queueType)) return
 
   if (queues[queueType].counter === 0) {
     queues[queueType].tasks[0].onTimeout(queues[queueType].tasks[0])
@@ -45,6 +46,8 @@ export const queueRun = ({queueType = QUEUES_TYPES[0]}) => {
 
   task()
   setTimeout(() => {
+    if (shouldStopQueue(queueType)) return
+
     queueRun({queueType})
 
     queues[queueType].counter--

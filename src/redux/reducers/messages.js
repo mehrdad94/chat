@@ -46,7 +46,7 @@ export default function messages (state = initialState, action) {
       const message = state[action.meta.currentUserId].messages[action.payload.roomId][index]
       const sentCount = message.sentCount - 1
 
-      const status = sentCount === 0 ? constants.MESSAGE_STATUS[1] : constants.MESSAGE_STATUS[0]
+      const status = sentCount <= 0 ? constants.MESSAGE_STATUS[1] : constants.MESSAGE_STATUS[0]
 
       return update(state, {[action.meta.currentUserId]: { messages: {[action.payload.roomId]: {[index]: { $merge: { sentCount, status } }}}}})
     }

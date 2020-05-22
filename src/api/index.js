@@ -3,7 +3,7 @@ import io from '../libs/socket.io'
 import roomModel, { updateRoomModel } from './models/room.model'
 import profileModel from './models/profile.model'
 
-const baseUrl = 'http://localhost:3000' // 'https://api.privatechat.app'
+const baseUrl = 'https://api.privatechat.app' // 'http://localhost:3000'
 
 // handle token
 export function setToken (token) {

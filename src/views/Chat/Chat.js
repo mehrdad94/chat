@@ -32,7 +32,8 @@ import RoomJoin from '../Dialogs/RoomJoin/RoomJoin'
 import RoomInfo from '../Dialogs/RoomInfo/RoomInfo'
 
 import { socketConnect, setToken, apiDisconnect } from '../../api'
-import { createAnswer, answer, addIceCandidate } from '../../api/webRTC_experimental'
+import { createAnswer, answer, addIceCandidate, closeAPeer } from '../../api/webRTC_experimental'
+import { createPeerId } from '../../api/webRTC_helpers'
 import { eventManage, typingReceivedHelper } from '../../helpers/helper'
 import { getProfiles, getProfilesCurrentUserId } from '../../redux/reducers/profiles'
 // import { treeAdd, treeRemove } from '../../helpers/treeModel'
@@ -110,6 +111,8 @@ class Chat extends React.Component {
       },
       onProfileDisconnected: (user, roomId) => {
         this.props.roomOnlineDelete(user.id, roomId)
+
+        closeAPeer(createPeerId(roomId, user.id, this.props.profileCurrentUserId))
       },
       onMessageCreate: ({roomId, userId, message}) => {
         this.props.messageCreate(message, roomId)
