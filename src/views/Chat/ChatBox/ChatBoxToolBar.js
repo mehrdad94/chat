@@ -1,12 +1,14 @@
 import React, {Fragment} from 'react'
 import { connect } from 'react-redux'
-import constants from "../../../configs/constants"
-import { dialogActiveSet } from '../../../redux/actions'
-import { getRoomActive } from '../../../redux/reducers/rooms'
+import constants from '../../../configs/constants'
+import { dialogActiveSet, } from '../../../redux/actions'
+import { getRoomActive, getRoomActiveStatus } from '../../../redux/reducers/rooms'
 import { getConnectionStatus } from '../../../redux/reducers/application'
 import { getProfilesCurrentUserId } from '../../../redux/reducers/profiles'
-
-const isServerDisconnected = status => status === constants.CONNECTION_STATUS[0]
+import { isDisconnected, isServerDisconnected } from '../../../helpers/helper'
+import { call } from '../../../api/webRTC_experimental'
+import { eventManage } from '../../../helpers/helper'
+import ChatBoxIncomingCall from './ChatBoxIncomingCall'
 
 function RoomStatus (props) {
   if (Object.keys(props.membersTyping).length > 0) return <i><i className="lh-1">Typing...</i></i>
@@ -36,12 +38,25 @@ class ChatBoxToolBar extends React.Component {
   }
 
   onCopyRoomIdClick = () => {
-    navigator.clipboard.writeText(this.props.roomsActive.publicId).then(() => {
+    navigator.clipboard.writeText(this.props.roomsActive.publicId).then(() => {})
+  }
+
+  onCameraClick = async () => {
+    eventManage.publish('ON_CAMERA_CLICK')
+
+    const roomId = this.props.roomsActive.id
+    const senderId = this.props.profileCurrentUserId
+    const receiverIds = this.props.roomsActive.meta.membersOnline.filter(id => id !== senderId)
+
+    receiverIds.forEach(async receiverId => {
+      await call({ type: constants.STREAM_TYPES[2], roomId, senderId, receiverId })
     })
   }
+
   render () {
     return (
       <Fragment>
+        <ChatBoxIncomingCall/>
         {
           this.props.roomsActive && this.props.roomsActive.meta && (
             <div className="layer w-100">
@@ -60,12 +75,17 @@ class ChatBoxToolBar extends React.Component {
                   </div>
                 </div>
                 <div className="peers">
-                  {/*<a href="" className="peer td-n c-grey-900 cH-blue-500 fsz-md mR-30" title="">*/}
-                  {/*  <i className="ti-video-camera"/>*/}
-                  {/*</a>*/}
-                  {/*<a href="" className="peer td-n c-grey-900 cH-blue-500 fsz-md mR-30" title="">*/}
-                  {/*  <i className="ti-headphone"/>*/}
-                  {/*</a>*/}
+                  <button className="btn btn-link peer td-n c-grey-900 cH-blue-500 fsz-md mR-30 p-0"
+                          onClick={this.onCameraClick}
+                          disabled={isServerDisconnected(this.props.connectionStatus) || isDisconnected(this.props.roomsActiveStatus)}>
+                    <i className="ti-video-camera"/>
+                  </button>
+
+                  <button className="btn btn-link peer td-n c-grey-900 cH-blue-500 fsz-md mR-30 p-0"
+                          disabled={isServerDisconnected(this.props.connectionStatus) || isDisconnected(this.props.roomsActiveStatus)}>
+                    <i className="ti-headphone"/>
+                  </button>
+
                   <a href="" className="peer td-n c-grey-900 cH-blue-500 fsz-md" title="" data-toggle="dropdown">
                     <i className="ti-more"/>
                   </a>
@@ -118,12 +138,13 @@ class ChatBoxToolBar extends React.Component {
 
 const mapStateToProps = state => ({
   roomsActive: getRoomActive(state),
+  roomsActiveStatus: getRoomActiveStatus(state),
   profileCurrentUserId: getProfilesCurrentUserId(state),
   connectionStatus: getConnectionStatus(state)
 })
 
 const mapDispatchToProps = {
-    dialogActiveSet
+  dialogActiveSet
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ChatBoxToolBar)

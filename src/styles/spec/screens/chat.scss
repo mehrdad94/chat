@@ -1,3 +1,25 @@
+#videos-container {
+  height: calc(100% - 91px);
+}
+
+#video-call-wrap {
+  border-radius: 20px;
+}
+
+#chat-box-incoming-call {
+  height: 88px;
+}
+
+#user-video-container {
+  width: 250px;
+  height: 125px;
+
+  video {
+    max-width: 100%;
+    max-height: 100%;
+  }
+}
+
 #chat-sidebar {
   width: 250px;
   height: 100%;

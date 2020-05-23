@@ -12,7 +12,7 @@ export default function application (state = initialState, action) {
   if (!action.meta) return state
 
   if (!action.meta.currentUserId) return state
-  if (!state[action.meta.currentUserId]) state = update(state, { [action.meta.currentUserId]: { $set: { connectionStatus: constants.CONNECTION_STATUS[0]} } })
+  if (!state[action.meta.currentUserId]) state = update(state, { [action.meta.currentUserId]: { $set: { connectionStatus: constants.CONNECTION_STATUS[0] } } })
 
   switch (action.type) {
     case DIALOG_ACTIVE_SET:

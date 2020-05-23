@@ -5,16 +5,13 @@ import { sendMessage } from '../../../api/webRTC_experimental'
 import messageTextModel from '../../../api/models/messageText.model'
 import { eventManage } from '../../../helpers/helper'
 import { queueAdd, queueRun } from '../../../helpers/queue'
-import { typingSentHelper } from '../../../helpers/helper'
+import { typingSentHelper, isDisconnected, isServerDisconnected } from '../../../helpers/helper'
 import constants from '../../../configs/constants.json'
 import { getProfiles, getProfilesCurrentUserId } from '../../../redux/reducers/profiles'
 import { getRoomActive, getRoomActiveStatus } from '../../../redux/reducers/rooms'
 import { getConnectionStatus } from '../../../redux/reducers/application'
 
 // import { getNodeConnections } from '../../../helpers/treeModel'
-
-const isDisconnected = status => status === constants.ROOM_STATUS[0]
-const isServerDisconnected = status => status === constants.CONNECTION_STATUS[0]
 
 const textAreaPlaceHolder = (connectionStatus, roomStatus) => {
   if (isServerDisconnected(connectionStatus)) return "You're offline, please check your internet connection!"

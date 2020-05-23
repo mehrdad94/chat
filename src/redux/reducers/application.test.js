@@ -3,7 +3,7 @@ import { sharedStateMock } from '../middlewares/actionsSharedState'
 import {
   dialogActiveSet,
   connectionStatusActivate,
-  connectionStatusDeactivate
+  connectionStatusDeactivate,
 } from '../actions'
 import constants from '../../configs/constants.json'
 

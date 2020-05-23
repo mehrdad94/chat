@@ -24,6 +24,8 @@ const getRoomStatus = room => {
 
 export default function rooms (state = initialState, action) {
   if (!action.meta) return state
+  if (!action.meta.currentUserId) return state
+
   if (!state[action.meta.currentUserId]) state = update(state, { [action.meta.currentUserId]: { $set: { rooms: [], roomsActive: '' } } })
 
   switch (action.type) {

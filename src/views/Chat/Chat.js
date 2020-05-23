@@ -36,14 +36,19 @@ import { createAnswer, answer, addIceCandidate, closeAPeer } from '../../api/web
 import { createPeerId } from '../../api/webRTC_helpers'
 import { eventManage, typingReceivedHelper } from '../../helpers/helper'
 import { getProfiles, getProfilesCurrentUserId } from '../../redux/reducers/profiles'
+import { waitOnAcceptCall } from './ChatBox/ChatBoxIncomingCall'
+
 // import { treeAdd, treeRemove } from '../../helpers/treeModel'
+import VideoCall from './VideoCall/VideoCall'
+import constants from '../../configs/constants'
 
 const genState = props => {
   const {
     redirect = false
   } = props
   return {
-    redirect
+    redirect,
+    mode: constants.MODE[0]
   }
 }
 
@@ -139,9 +144,19 @@ class Chat extends React.Component {
           this.props.roomStoppedTyping(roomId, userId)
         })
       },
-      onSignal: async ({roomId, receiverId, senderId, desc, candidate}) => {
+      onSignal: async ({roomId, receiverId, senderId, desc, candidate, offerType}) => {
         if (desc) {
           if (desc.type === 'offer') {
+            if (offerType === constants.OFFER_TYPE[1]) {
+              eventManage.publish('ON_OFFER_STREAM')
+              try {
+                await waitOnAcceptCall()
+              } catch (e) {
+                // TODO report other user that call has been rejected
+                return
+              }
+            }
+
             await createAnswer({ roomId, receiverId, senderId, desc })
           } else if (desc.type === 'answer') {
             await answer({ roomId, receiverId, senderId, desc })
@@ -149,7 +164,19 @@ class Chat extends React.Component {
         } else if (candidate) {
           await addIceCandidate({ roomId, receiverId, senderId, candidate })
         }
+      },
+      onLocalStreamCreate: ({ stream }) => {
+        eventManage.publish('ON_LOCAL_STREAM', { stream })
+      },
+      onRemoteStreamCreate: ({ stream, peerId }) => {
+        eventManage.publish('ON_REMOTE_STREAM', { stream, peerId })
       }
+    })
+
+    eventManage.subscribe('ON_CAMERA_CLICK', () => {
+      this.setState({
+        mode: constants.MODE[1]
+      })
     })
   }
 
@@ -158,34 +185,39 @@ class Chat extends React.Component {
   }
 
   render() {
+    const chatWrapperClassNames = 'page-container h-100 ' + (this.state.mode !== constants.MODE[0] ? 'd-none' : '')
+    const videoWrapClassNames = 'h-100 bgc-grey-100 p-20 ' + (this.state.mode !== constants.MODE[1] ? 'd-none' : '')
+
     return (
       <Fragment>
         { this.renderRedirect() }
 
         <div className="h-100">
-          <div className="h-100">
-            <div className="page-container h-100">
-              <Header/>
+          <div className={videoWrapClassNames}>
+            <VideoCall/>
+          </div>
 
-              <main className="main-content bgc-grey-100">
-                <div id="mainContent" className="h-100p">
-                  <div className="full-container pl-0">
-                    <div className="peers fxw-nw pos-a h-100p w-100p">
-                      <Sidebar/>
+          <div className={chatWrapperClassNames}>
+            <Header/>
 
-                      <ChatBox/>
-                    </div>
+            <main className="main-content bgc-grey-100">
+              <div id="mainContent" className="h-100p">
+                <div className="full-container pl-0">
+                  <div className="peers fxw-nw pos-a h-100p w-100p">
+                    <Sidebar/>
+
+                    <ChatBox/>
                   </div>
                 </div>
-              </main>
+              </div>
+            </main>
 
-              {/* dialogs */}
-              <RoomCreate />
-              <RoomUpdate />
-              <RoomDelete />
-              <RoomJoin />
-              <RoomInfo />
-            </div>
+            {/* dialogs */}
+            <RoomCreate />
+            <RoomUpdate />
+            <RoomDelete />
+            <RoomJoin />
+            <RoomInfo />
           </div>
         </div>
       </Fragment>

@@ -1,4 +1,4 @@
-import migrations from './migrations'
+import v2 from './2'
 
 test('version 2', function () {
   const currentUserId = '1234'
@@ -12,14 +12,14 @@ test('version 2', function () {
   const state = {
     messages: {
       [currentUserId]: {
-          messages: {
-            [room]: messages
-          }
+        messages: {
+          [room]: messages
+        }
       }
     }
   }
 
-  expect(migrations[2](state)).toEqual({
+  expect(v2(state)).toEqual({
     messages: {
       [currentUserId]: {
         messages: {

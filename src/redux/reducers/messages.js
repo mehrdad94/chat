@@ -8,6 +8,8 @@ export const initialState = {}
 
 export default function messages (state = initialState, action) {
   if (!action.meta) return state
+
+  if (!action.meta.currentUserId) return state
   if (!state[action.meta.currentUserId]) state = update(state, { [action.meta.currentUserId]: { $set: { messages: {} } } })
 
   switch (action.type) {

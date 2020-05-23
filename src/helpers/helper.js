@@ -1,4 +1,5 @@
 import curry from 'ramda/src/curry'
+import constants from '../configs/constants'
 
 // find with binary search
 export const findIndexB = curry((compareFn, ar) => {
@@ -136,3 +137,6 @@ export const typingSentHelper = (roomId, userId, clb) => {
     sentTypings[id].timeout = null
   }, sentTypings[id].period)
 }
+
+export const isDisconnected = status => status === constants.ROOM_STATUS[0]
+export const isServerDisconnected = status => status === constants.CONNECTION_STATUS[0]

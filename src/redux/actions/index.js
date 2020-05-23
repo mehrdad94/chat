@@ -19,7 +19,7 @@ import {
   MESSAGE_DELETE,
   MESSAGE_SENT_CREATE,
   CONNECTION_STATUS_ACTIVATE,
-  CONNECTION_STATUS_DEACTIVATE
+  CONNECTION_STATUS_DEACTIVATE,
 } from '../ActionTypes'
 
 export const dialogActiveSet = (dialogName) => ({

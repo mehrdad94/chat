@@ -1,9 +1,9 @@
 import { request } from '../helpers/helper'
-import io from '../libs/socket.io'
+import io from 'socket.io-client'
 import roomModel, { updateRoomModel } from './models/room.model'
 import profileModel from './models/profile.model'
 
-const baseUrl = 'https://api.privatechat.app' // 'http://localhost:3000'
+const baseUrl = 'https://api.privatechat.app' // 'http://localhost:5423'
 
 // handle token
 export function setToken (token) {
@@ -58,7 +58,9 @@ export function socketConnect ({
     onRTCConnectionStateFailed,
     onTyping,
     onSignal,
-    onErrorAuthenticate
+    onErrorAuthenticate,
+    onLocalStreamCreate,
+    onRemoteStreamCreate
   }) {
   if (roomSocket) return
 
@@ -134,6 +136,8 @@ export function socketConnect ({
   webRTCListeners['onMessagesReceived'] = onMessagesReceived
   webRTCListeners['onRTCConnectionStateConnected'] = onRTCConnectionStateConnected
   webRTCListeners['onRTCConnectionStateFailed'] = onRTCConnectionStateFailed
+  webRTCListeners['onLocalStreamCreate'] = onLocalStreamCreate
+  webRTCListeners['onRemoteStreamCreate'] = onRemoteStreamCreate
 }
 
 export function apiDisconnect () {
@@ -168,12 +172,13 @@ export function apiSendIceCandidate (roomId, receiverId, senderId, candidate) {
   })
 }
 
-export function apiSendDescription (roomId, receiverId, senderId, desc) {
+export function apiSendDescription (roomId, receiverId, senderId, desc, offerType) {
   roomSocket.emit('SIGNAL', {
     roomId,
     receiverId,
     senderId,
-    desc
+    desc,
+    offerType
   })
 }
 

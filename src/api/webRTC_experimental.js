@@ -23,6 +23,25 @@ const peerConnections = {}
 const dataChannels = {}
 const peerConnectionDoubleChannelCreate = {} // prevent creating more than one offer, ...
 const peerConnectionDoubleOfferCreate = {}
+const peerConnectionIceQueue = {}
+
+let localStream
+
+export async function getStream (type = constants.STREAM_TYPES[0]) {
+  let constraints
+
+  if (type === constants.STREAM_TYPES[0]) {
+    constraints = { video: false, audio: true }
+  } else if (type === constants.STREAM_TYPES[1]) {
+    constraints = { video: true, audio: false }
+  } else {
+    constraints = { video: true, audio: true }
+  }
+
+  if (!localStream) localStream = await navigator.mediaDevices.getUserMedia(constraints)
+
+  return localStream
+}
 
 export function createPeerConnection({ peerId }) {
   const peerConnection = new RTCPeerConnection00(peerConnectionConfig)
@@ -53,6 +72,10 @@ export function createPeerConnection({ peerId }) {
 
   peerConnection.ondatachannel = event => {
     setChannelEvents({ channel: event.channel, peerId })
+  }
+
+  peerConnection.onaddstream = event => {
+    getWebRTCListeners('onRemoteStreamCreate')({ stream: event.stream, peerId })
   }
 
   peerConnections[peerId] = peerConnection
@@ -150,7 +173,7 @@ export function createDataChannel (peerId, channelName = 'sctp-channel') {
   })
 }
 
-export async function createOffer ({ peerId }) {
+export async function createOffer ({ peerId, offerType = constants.OFFER_TYPE[0] }) {
   const peerConnection = peerConnections[peerId]
 
   const desc = await peerConnection.createOffer()
@@ -159,7 +182,7 @@ export async function createOffer ({ peerId }) {
 
   const [roomId, receiverId, senderId] = peerId.split('/')
 
-  apiSendDescription(roomId, receiverId, senderId, desc)
+  apiSendDescription(roomId, receiverId, senderId, desc, offerType)
 }
 
 export async function createAnswer ({roomId, receiverId, senderId, desc}) {
@@ -219,4 +242,20 @@ export async function sendMessage ({ roomId, receiverId, senderId, ownerId = sen
     peerConnectionDoubleOfferCreate[peerId] = true
     await createOffer({ peerId })
   }
+}
+
+export async function call ({ roomId, receiverId, senderId, type = constants.STREAM_TYPES[0] }) {
+  const peerId = `${roomId}/${receiverId}/${senderId}`
+
+  const stream = await getStream(type)
+
+  if (!stream) return
+
+  getWebRTCListeners('onLocalStreamCreate')({ stream, type })
+
+  if (!peerConnections[peerId]) createPeerConnection({ peerId })
+
+  peerConnections[peerId].addStream(stream)
+
+  await createOffer({ peerId, offerType: constants.OFFER_TYPE[1] })
 }

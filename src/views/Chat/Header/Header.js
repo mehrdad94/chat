@@ -45,6 +45,7 @@ class Header extends React.Component {
     return (
       <Fragment>
         { this.renderRedirect() }
+
         <div className="header navbar">
           <div className="header-container">
             <ul className="nav-left">
