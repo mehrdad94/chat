@@ -1,12 +1,12 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { eventManage } from '../../../helpers/helper'
-import constants from '../../../configs/constants'
 
 class VideoCall extends React.Component {
   constructor(props) {
     super(props)
     this.userVideo = React.createRef()
+    this.videosWrap = React.createRef()
   }
 
   state = {
@@ -14,16 +14,20 @@ class VideoCall extends React.Component {
   }
 
   componentDidMount() {
-    eventManage.subscribe('ON_LOCAL_STREAM', ({ stream, type }) => {
-      if (type === constants.STREAM_TYPES[0]) return
-
+    eventManage.subscribe('ON_LOCAL_STREAM', ({ stream }) => {
       this.userVideo.current.srcObject = stream
     })
 
     eventManage.subscribe('ON_REMOTE_STREAM', ({ stream, peerId }) => {
-      this.setState({
-        streams: [...this.state.streams, { stream, peerId }]
-      })
+      console.log('find me')
+
+      const video = document.createElement('video')
+      video.srcObject = stream
+      video.className = 'peer peer-greed h-100'
+      video.id = `video${peerId}`
+      video.autoplay = true
+
+      this.videosWrap.current.appendChild(video)
     })
   }
 
@@ -31,15 +35,8 @@ class VideoCall extends React.Component {
     return (
       <div id="video-call-wrap" className="h-100 bgc-white shadow">
         <div id="videos-container" className="p-20 pos-r">
-          <div className="h-100 bgc-amber-50 peers">
-            {
-              this.state.streams.map((stream, key) => (
-                <div className="peer" key={key}>
-                  <video className="" src={stream} autoPlay/>
-                </div>
-              ))
-            }
 
+          <div className="h-100 peers" ref={this.videosWrap}>
           </div>
 
           <div id="user-video-container" className="pos-a r-70 b-70">

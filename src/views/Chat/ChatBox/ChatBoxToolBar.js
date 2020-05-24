@@ -75,15 +75,20 @@ class ChatBoxToolBar extends React.Component {
                   </div>
                 </div>
                 <div className="peers">
-                  <button className="btn btn-link peer td-n c-grey-900 cH-blue-500 fsz-md mR-30 p-0"
-                          onClick={this.onCameraClick}
-                          disabled={isServerDisconnected(this.props.connectionStatus) || isDisconnected(this.props.roomsActiveStatus)}>
-                    <i className="ti-video-camera"/>
-                  </button>
+                  {/*<button className="btn btn-link peer td-n c-grey-900 cH-blue-500 fsz-md mR-30 p-0"*/}
+                  {/*        onClick={this.onCameraClick}*/}
+                  {/*        disabled={isServerDisconnected(this.props.connectionStatus) || isDisconnected(this.props.roomsActiveStatus)}>*/}
+                  {/*  <i className="ti-video-camera"/>*/}
+                  {/*</button>*/}
+
+                  {/*<button className="btn btn-link peer td-n c-grey-900 cH-blue-500 fsz-md mR-30 p-0"*/}
+                  {/*        disabled={isServerDisconnected(this.props.connectionStatus) || isDisconnected(this.props.roomsActiveStatus)}>*/}
+                  {/*  <i className="ti-headphone"/>*/}
+                  {/*</button>*/}
 
                   <button className="btn btn-link peer td-n c-grey-900 cH-blue-500 fsz-md mR-30 p-0"
                           disabled={isServerDisconnected(this.props.connectionStatus) || isDisconnected(this.props.roomsActiveStatus)}>
-                    <i className="ti-headphone"/>
+                    <i className="ti-clip"/>
                   </button>
 
                   <a href="" className="peer td-n c-grey-900 cH-blue-500 fsz-md" title="" data-toggle="dropdown">

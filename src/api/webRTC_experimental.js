@@ -1,4 +1,4 @@
-import { apiSendDescription, apiSendIceCandidate, getWebRTCListeners } from './index'
+import { apiSendDescription, apiSendIceCandidate, getWebRTCListeners, apiSendOfferType } from './index'
 import { getIceServers, createPeerId, extractInfoFromPeerId } from './webRTC_helpers'
 import { queueRemove } from '../helpers/queue'
 import typingModel from './models/typing.model'
@@ -17,30 +17,38 @@ if (typeof window.RTCPeerConnection !== 'undefined') {
   RTCPeerConnection00 = window.webkitRTCPeerConnection
 }
 
+const dataChannelText = 'sctp-channel'
+const dataChannelFile = 'sctp-file-channel'
+
 const peerConnectionConfig = { iceServers: getIceServers() }
 
 const peerConnections = {}
 const dataChannels = {}
 const peerConnectionDoubleChannelCreate = {} // prevent creating more than one offer, ...
 const peerConnectionDoubleOfferCreate = {}
-const peerConnectionIceQueue = {}
 
 let localStream
+let localDisplayStream
 
 export async function getStream (type = constants.STREAM_TYPES[0]) {
   let constraints
-
+  let displayConstraints
   if (type === constants.STREAM_TYPES[0]) {
     constraints = { video: false, audio: true }
   } else if (type === constants.STREAM_TYPES[1]) {
     constraints = { video: true, audio: false }
   } else {
-    constraints = { video: true, audio: true }
+    constraints = { video: { width: 1280, height: 720 }, audio: true }
+    displayConstraints = { video: { width: 250, height: 125 }, audio: true }
   }
 
   if (!localStream) localStream = await navigator.mediaDevices.getUserMedia(constraints)
+  if (!localDisplayStream) localDisplayStream = await navigator.mediaDevices.getUserMedia(displayConstraints)
 
-  return localStream
+  return {
+    localStream,
+    localDisplayStream
+  }
 }
 
 export function createPeerConnection({ peerId }) {
@@ -71,6 +79,7 @@ export function createPeerConnection({ peerId }) {
   }
 
   peerConnection.ondatachannel = event => {
+    console.log(event)
     setChannelEvents({ channel: event.channel, peerId })
   }
 
@@ -125,17 +134,19 @@ function setChannelEvents ({ channel, peerId, onopen }) {
   }
 
   channel.onopen = () => {
-    dataChannels[peerId] = channel
+    if (!dataChannels[peerId]) dataChannels[peerId] = {}
+
+    dataChannels[peerId][channel.label] = channel
 
     if (onopen) onopen(channel)
   }
   channel.onclose = () => {
-    delete dataChannels[peerId]
+    delete dataChannels[peerId][channel.label]
   }
 
   channel.onerror = event => {
     if (event.target.readyState === 'closed') {
-      if (dataChannels[peerId]) delete dataChannels[peerId]
+      if (dataChannels[peerId][channel.label]) delete dataChannels[peerId][channel.label]
     }
     console.error('WebRTC DataChannel error', event)
   }
@@ -144,7 +155,11 @@ export function closeAPeer (peerId) {
   if (!peerConnections[peerId]) return
 
   peerConnections[peerId].close()
-  if (dataChannels[peerId]) dataChannels[peerId].close()
+  if (dataChannels[peerId]) {
+    Object.values(dataChannels[peerId]).forEach(channel => {
+      channel.close()
+    })
+  }
   // stop streams too
   delete peerConnections[peerId]
   delete dataChannels[peerId]
@@ -153,22 +168,24 @@ export function closeAPeer (peerId) {
 }
 
 export function createDataChannel (peerId, channelName = 'sctp-channel') {
+  if (!dataChannels[peerId]) dataChannels[peerId] = {}
+  if (!peerConnectionDoubleChannelCreate[peerId]) peerConnectionDoubleChannelCreate[peerId] = {}
+
   return new Promise((resolve, reject) => {
     function checkDataChannelReadyState () {
-      if (!dataChannels[peerId]) reject('Data Channel does not exist')
-      if (dataChannels[peerId].readyState === 'open') resolve(dataChannels[peerId])
+      if (!dataChannels[peerId][channelName]) reject('Data Channel does not exist')
+      if (dataChannels[peerId][channelName].readyState === 'open') resolve(dataChannels[peerId][channelName])
       else setTimeout(checkDataChannelReadyState, 1000)
     }
 
-    if (dataChannels[peerId]) {
+    if (dataChannels[peerId][channelName]) {
       checkDataChannelReadyState()
-    } else if (!peerConnectionDoubleChannelCreate[peerId]) {
-      console.log('data channel create')
-      peerConnectionDoubleChannelCreate[peerId] = true
+    } else if (!peerConnectionDoubleChannelCreate[peerId][channelName]) {
+      peerConnectionDoubleChannelCreate[peerId][channelName] = true
 
-      dataChannels[peerId] = peerConnections[peerId].createDataChannel(channelName, {})
+      dataChannels[peerId][channelName] = peerConnections[peerId].createDataChannel(channelName, {})
 
-      setChannelEvents({ channel: dataChannels[peerId], peerId, onopen: (channel) => { resolve (channel) } })
+      setChannelEvents({ channel: dataChannels[peerId][channelName], peerId, onopen: (channel) => { resolve (channel) } })
     }
   })
 }
@@ -232,7 +249,7 @@ export async function sendMessage ({ roomId, receiverId, senderId, ownerId = sen
 
   if (!peerConnections[peerId]) createPeerConnection({ peerId })
 
-  createDataChannel(peerId).then( channel => {
+  createDataChannel(peerId, dataChannelText).then( channel => {
     if (type === constants.MESSAGE_TYPES[0]) channel.send(JSON.stringify(message))
     else if (type === constants.DATA_CHANNEL_MESSAGE_TYPES[0]) channel.send(JSON.stringify(typingModel(roomId, senderId, ownerId)))
     else if (type === constants.DATA_CHANNEL_MESSAGE_TYPES[1]) channel.send(JSON.stringify(replyModel(roomId, message.id)))
@@ -244,18 +261,34 @@ export async function sendMessage ({ roomId, receiverId, senderId, ownerId = sen
   }
 }
 
-export async function call ({ roomId, receiverId, senderId, type = constants.STREAM_TYPES[0] }) {
+export async function call ({ roomId, receiverId, senderId, type = constants.STREAM_TYPES[2] }) {
   const peerId = `${roomId}/${receiverId}/${senderId}`
 
-  const stream = await getStream(type)
+  const streams = await getStream(type)
 
-  if (!stream) return
+  if (!streams.localStream) return // TODO show proper Error
 
-  getWebRTCListeners('onLocalStreamCreate')({ stream, type })
+  getWebRTCListeners('onLocalStreamCreate')({ stream: streams.localDisplayStream, type })
+
+  apiSendOfferType(roomId, receiverId, senderId, constants.OFFER_TYPE[1])
 
   if (!peerConnections[peerId]) createPeerConnection({ peerId })
 
-  peerConnections[peerId].addStream(stream)
+  peerConnections[peerId].addStream(streams.localStream)
+}
+
+export async function answerCall ({ roomId, receiverId, senderId, type = constants.STREAM_TYPES[2] }) {
+  const peerId = `${roomId}/${receiverId}/${senderId}`
+
+  const streams = await getStream(type)
+
+  if (!streams.localStream) return
+
+  getWebRTCListeners('onLocalStreamCreate')({ stream: streams.localDisplayStream, type })
+
+  if (!peerConnections[peerId]) createPeerConnection({ peerId })
+
+  peerConnections[peerId].addStream(streams.localStream)
 
   await createOffer({ peerId, offerType: constants.OFFER_TYPE[1] })
 }

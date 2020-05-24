@@ -3,12 +3,17 @@ import { eventManage } from '../../../helpers/helper'
 import $ from "jquery";
 
 export async function waitOnAcceptCall () {
-  return new Promise(function(resolve, reject){
+  return new Promise((resolve, reject) => {
     $(document).on('click', '#answer-call-btn', () => {
       resolve()
+
+      eventManage.publish('ON_ANSWER_CALL')
     })
+
     $(document).on('click', '#reject-call-btn', () => {
       reject()
+
+      eventManage.publish('ON_REJECT_CALL')
     })
   })
 }
@@ -22,6 +27,18 @@ class ChatBoxIncomingCall extends React.Component {
     eventManage.subscribe('ON_OFFER_STREAM', () => {
       this.setState({
         display: true
+      })
+    })
+
+    eventManage.subscribe('ON_ANSWER_CALL', () => {
+      this.setState({
+        display: false
+      })
+    })
+
+    eventManage.subscribe('ON_REJECT_CALL', () => {
+      this.setState({
+        display: false
       })
     })
   }

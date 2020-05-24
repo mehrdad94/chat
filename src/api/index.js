@@ -172,12 +172,20 @@ export function apiSendIceCandidate (roomId, receiverId, senderId, candidate) {
   })
 }
 
-export function apiSendDescription (roomId, receiverId, senderId, desc, offerType) {
+export function apiSendDescription (roomId, receiverId, senderId, desc) {
   roomSocket.emit('SIGNAL', {
     roomId,
     receiverId,
     senderId,
-    desc,
+    desc
+  })
+}
+
+export function apiSendOfferType (roomId, receiverId, senderId, offerType) {
+  roomSocket.emit('SIGNAL', {
+    roomId,
+    receiverId,
+    senderId,
     offerType
   })
 }

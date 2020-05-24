@@ -32,12 +32,11 @@ import RoomJoin from '../Dialogs/RoomJoin/RoomJoin'
 import RoomInfo from '../Dialogs/RoomInfo/RoomInfo'
 
 import { socketConnect, setToken, apiDisconnect } from '../../api'
-import { createAnswer, answer, addIceCandidate, closeAPeer } from '../../api/webRTC_experimental'
+import { createAnswer, answer, addIceCandidate, closeAPeer, answerCall } from '../../api/webRTC_experimental'
 import { createPeerId } from '../../api/webRTC_helpers'
 import { eventManage, typingReceivedHelper } from '../../helpers/helper'
 import { getProfiles, getProfilesCurrentUserId } from '../../redux/reducers/profiles'
 import { waitOnAcceptCall } from './ChatBox/ChatBoxIncomingCall'
-
 // import { treeAdd, treeRemove } from '../../helpers/treeModel'
 import VideoCall from './VideoCall/VideoCall'
 import constants from '../../configs/constants'
@@ -147,26 +146,25 @@ class Chat extends React.Component {
       onSignal: async ({roomId, receiverId, senderId, desc, candidate, offerType}) => {
         if (desc) {
           if (desc.type === 'offer') {
-            if (offerType === constants.OFFER_TYPE[1]) {
-              eventManage.publish('ON_OFFER_STREAM')
-              try {
-                await waitOnAcceptCall()
-              } catch (e) {
-                // TODO report other user that call has been rejected
-                return
-              }
-            }
-
-            await createAnswer({ roomId, receiverId, senderId, desc })
+            await createAnswer({ roomId, receiverId, senderId, desc, offerType })
           } else if (desc.type === 'answer') {
             await answer({ roomId, receiverId, senderId, desc })
           }
         } else if (candidate) {
           await addIceCandidate({ roomId, receiverId, senderId, candidate })
+        } else if (offerType === constants.OFFER_TYPE[1]) {
+          try {
+            eventManage.publish('ON_OFFER_STREAM')
+            await waitOnAcceptCall()
+            await answerCall({ roomId, senderId: receiverId, receiverId: senderId })
+          } catch (e) {
+            // TODO show proper error
+            console.log('reject')
+          }
         }
       },
-      onLocalStreamCreate: ({ stream }) => {
-        eventManage.publish('ON_LOCAL_STREAM', { stream })
+      onLocalStreamCreate: ({ stream, type }) => {
+        eventManage.publish('ON_LOCAL_STREAM', { stream, type })
       },
       onRemoteStreamCreate: ({ stream, peerId }) => {
         eventManage.publish('ON_REMOTE_STREAM', { stream, peerId })
@@ -174,6 +172,12 @@ class Chat extends React.Component {
     })
 
     eventManage.subscribe('ON_CAMERA_CLICK', () => {
+      this.setState({
+        mode: constants.MODE[1]
+      })
+    })
+
+    eventManage.subscribe('ON_ANSWER_CALL', () => {
       this.setState({
         mode: constants.MODE[1]
       })
