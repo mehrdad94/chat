@@ -4,16 +4,30 @@
     <bookmark url="file://$PROJECT_DIR$/src/views/Chat/ChatBox/ChatBox.js" description="import { connect } from 'react-redux'" line="1" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ddd7c153-8baa-4fe6-9770-1e28ef6dbcbe" name="Default Changelist" comment="Add Video call UI">
-      <change afterPath="$PROJECT_DIR$/src/api/models/messageFile.model.js" afterDir="false" />
+    <list default="true" id="ddd7c153-8baa-4fe6-9770-1e28ef6dbcbe" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/Chat/ChatBox/ChatBoxMessages/ChatBoxMessagesFile.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/Chat/ChatBox/ChatBoxMessages/ChatBoxMessagesText.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/chat.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/chat.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/models/messageFile.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/models/messageFile.model.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/api/webRTC_experimental.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/webRTC_experimental.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/configs/constants.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/configs/constants.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/webRTC_helpers.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/webRTC_helpers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/helpers/helper.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/helpers/helper.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/helpers/helper.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/helpers/helper.test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/custom/components/buttons.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/custom/components/buttons.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/custom/components/modals.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/custom/components/modals.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/custom/components/pageContainer.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/custom/components/pageContainer.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/spec/components/pageContainer.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/spec/components/pageContainer.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/spec/screens/chat.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/spec/screens/chat.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/spec/settings/baseColors.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/spec/settings/baseColors.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/Chat/Chat.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Chat/Chat.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Chat/ChatBox/ChatBoxIncomingCall.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Chat/ChatBox/ChatBoxIncomingCall.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/Chat/ChatBox/ChatBoxMessages.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Chat/ChatBox/ChatBoxMessages.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/Chat/ChatBox/ChatBoxTextArea.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Chat/ChatBox/ChatBoxTextArea.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/Chat/ChatBox/ChatBoxToolBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Chat/ChatBox/ChatBoxToolBar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Chat/VideoCall/VideoCall.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Chat/VideoCall/VideoCall.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/Chat/Header/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Chat/Header/Header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/Chat/Sidebar/Sidebar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Chat/Sidebar/Sidebar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/Chat/Sidebar/SidebarItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Chat/Sidebar/SidebarItem.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -26,11 +40,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/api/webRTC_experimental.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+            <state relative-caret-position="74">
+              <caret line="169" column="29" selection-start-line="169" selection-start-column="29" selection-end-line="169" selection-end-column="29" />
               <folding>
                 <element signature="e#0#103#0" expanded="true" />
               </folding>
@@ -39,46 +53,13 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/libs/webRTC.js">
+        <entry file="file://$PROJECT_DIR$/src/views/Chat/Chat.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret line="315" column="11" lean-forward="true" selection-start-line="315" selection-start-column="11" selection-end-line="315" selection-end-column="11" />
+            <state relative-caret-position="195">
+              <caret line="205" column="25" lean-forward="true" selection-start-line="205" selection-start-column="25" selection-end-line="205" selection-end-column="25" />
               <folding>
-                <element signature="n#!!doc" expanded="true" />
+                <element signature="e#0#39#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/api/models/messageFile.model.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" selection-start-line="19" selection-end-line="19" />
-              <folding>
-                <element signature="e#0#47#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/api/models/messageText.model.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="37" selection-start-line="4" selection-start-column="37" selection-end-line="4" selection-end-column="73" />
-              <folding>
-                <element signature="e#0#47#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/configs/constants.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="33" selection-start-line="3" selection-start-column="33" selection-end-line="3" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -86,22 +67,86 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/views/Chat/ChatBox/ChatBoxToolBar.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="88" column="100" lean-forward="true" selection-start-line="88" selection-start-column="100" selection-end-line="88" selection-end-column="100" />
+            <state relative-caret-position="591">
+              <caret line="123" column="76" lean-forward="true" selection-start-line="123" selection-start-column="76" selection-end-line="123" selection-end-column="76" />
               <folding>
                 <element signature="e#0#37#0" expanded="true" />
+                <element signature="e#5644#9143#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/views/Chat/VideoCall/VideoCall.js">
+        <entry file="file://$PROJECT_DIR$/src/views/Chat/Sidebar/Sidebar.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="816">
-              <caret line="48" column="36" lean-forward="true" selection-start-line="48" selection-start-column="36" selection-end-line="48" selection-end-column="36" />
+            <state relative-caret-position="442">
+              <caret line="51" column="4" lean-forward="true" selection-start-line="51" selection-start-column="4" selection-end-line="52" selection-end-column="46" />
               <folding>
-                <element signature="e#0#25#0" expanded="true" />
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/views/Chat/Sidebar/SidebarItem.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="311">
+              <caret line="42" column="46" selection-start-line="42" selection-start-column="46" selection-end-line="42" selection-end-column="46" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/helpers/helper.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="203">
+              <caret line="161" column="20" selection-start-line="161" selection-start-column="6" selection-end-line="161" selection-end-column="20" />
+              <folding>
+                <element signature="e#0#35#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/views/Chat/Header/Header.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="302">
+              <caret line="60" column="63" selection-start-line="60" selection-start-column="63" selection-end-line="60" selection-end-column="63" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/styles/spec/settings/baseColors.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="121">
+              <caret line="80" column="10" lean-forward="true" selection-start-line="80" selection-start-column="10" selection-end-line="80" selection-end-column="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/node_modules/bootstrap/dist/css/bootstrap.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="3237" column="1" selection-start-line="3237" selection-start-column="1" selection-end-line="3237" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/helpers/helper.test.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1122">
+              <caret line="66" column="34" selection-start-line="66" selection-start-column="34" selection-end-line="66" selection-end-column="34" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -111,22 +156,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>VIDEO_MODE</find>
-      <find>appl</find>
-      <find>onaddstream</find>
-      <find>import $</find>
-      <find>status</find>
-      <find>roomsActiveStatus</find>
-      <find>modeCreate</find>
-      <find>eve</find>
-      <find>this.props.mode</find>
-      <find>ref</find>
-      <find>user-video-container</find>
-      <find>eventManage</find>
-      <find>addic</find>
-      <find>remoteDescription</find>
-      <find>setRemote</find>
-      <find>addIc</find>
       <find>find me</find>
       <find>add</find>
       <find>ON_CAMERA_CLICK</find>
@@ -139,8 +168,24 @@
       <find>onlocal</find>
       <find>ON_REMOTE_STREAM</find>
       <find>onRemoteStreamCreate</find>
-      <find>createData</find>
       <find>console.log</find>
+      <find>messageText</find>
+      <find>ref</find>
+      <find>onmes</find>
+      <find>createDat</find>
+      <find>sendFil</find>
+      <find>hannel.onclose = () =&gt; {</find>
+      <find>status</find>
+      <find>border</find>
+      <find>ref(</find>
+      <find>backdrop</find>
+      <find>ontex</find>
+      <find>chat-sidebar</find>
+      <find>attac</find>
+      <find>createData</find>
+      <find>promiseWithTimeoutAndRetry</find>
+      <find>createDataChannel</find>
+      <find>$header-height</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -178,26 +223,14 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/App.js" />
-        <option value="$PROJECT_DIR$/src/views/Dialogs/RoomDelete/RoomDelete.js" />
-        <option value="$PROJECT_DIR$/src/api/models/profile.model.js" />
-        <option value="$PROJECT_DIR$/src/api/models/room.model.js" />
-        <option value="$PROJECT_DIR$/src/components/Unavailable/Unavailable.js" />
-        <option value="$PROJECT_DIR$/src/views/Chat/ChatBox/ChatBox.js" />
-        <option value="$PROJECT_DIR$/src/views/Dialogs/RoomCreate/RoomCreate.js" />
-        <option value="$PROJECT_DIR$/src/views/Dialogs/RoomJoin/RoomJoin.js" />
         <option value="$PROJECT_DIR$/src/libs/RTCPeerConnection-v1.5.js" />
-        <option value="$PROJECT_DIR$/src/views/Chat/ChatBox/ChatBoxMessages.js" />
         <option value="$PROJECT_DIR$/src/helpers/peerConnectionsStatus.js" />
-        <option value="$PROJECT_DIR$/src/styles/custom/components/modals.scss" />
-        <option value="$PROJECT_DIR$/src/styles/spec/components/pageContainer.scss" />
         <option value="$PROJECT_DIR$/src/styles/spec/components/sidebar.scss" />
         <option value="$PROJECT_DIR$/src/styles/spec/screens/email.scss" />
         <option value="$PROJECT_DIR$/src/App.css" />
         <option value="$PROJECT_DIR$/src/components/Loader/Loader.scss" />
         <option value="$PROJECT_DIR$/src/views/Login/Login.js" />
         <option value="$PROJECT_DIR$/src/views/SignUp/SignUp.js" />
-        <option value="$PROJECT_DIR$/src/api/webRTC_helpers.js" />
         <option value="$PROJECT_DIR$/src/index.js" />
         <option value="$PROJECT_DIR$/src/helpers/queue.js" />
         <option value="$PROJECT_DIR$/src/redux/migrations/2.js" />
@@ -208,8 +241,6 @@
         <option value="$PROJECT_DIR$/src/redux/reducers/messages.js" />
         <option value="$PROJECT_DIR$/src/redux/reducers/profiles.js" />
         <option value="$PROJECT_DIR$/src/redux/reducers/rooms.js" />
-        <option value="$PROJECT_DIR$/src/views/Chat/ChatBox/ChatBoxTextArea.js" />
-        <option value="$PROJECT_DIR$/src/helpers/helper.js" />
         <option value="$PROJECT_DIR$/src/redux/reducers/application.test.js" />
         <option value="$PROJECT_DIR$/src/redux/ActionTypes.js" />
         <option value="$PROJECT_DIR$/src/redux/actions/index.js" />
@@ -218,17 +249,31 @@
         <option value="$PROJECT_DIR$/src/redux/migrations.js" />
         <option value="$PROJECT_DIR$/src/views/Chat/Header/IncommingCall.js" />
         <option value="$PROJECT_DIR$/src/views/Chat/Header/IncomingCall.js" />
-        <option value="$PROJECT_DIR$/src/views/Chat/Header/Header.js" />
-        <option value="$PROJECT_DIR$/src/styles/spec/screens/chat.scss" />
         <option value="$PROJECT_DIR$/src/redux/store.js" />
         <option value="$PROJECT_DIR$/src/views/Chat/ChatBox/ChatBoxIncomingCall.js" />
         <option value="$PROJECT_DIR$/src/api/index.js" />
         <option value="$PROJECT_DIR$/src/views/Chat/VideoCall/VideoCall.js" />
-        <option value="$PROJECT_DIR$/src/views/Chat/ChatBox/ChatBoxToolBar.js" />
         <option value="$PROJECT_DIR$/src/configs/constants.json" />
+        <option value="$PROJECT_DIR$/src/api/webRTC_helpers.js" />
         <option value="$PROJECT_DIR$/src/api/models/messageFile.model.js" />
-        <option value="$PROJECT_DIR$/src/views/Chat/Chat.js" />
+        <option value="$PROJECT_DIR$/src/views/Chat/ChatBox/ChatBoxMessages/ChatBoxMessagesFile.js" />
+        <option value="$PROJECT_DIR$/src/styles/custom/components/buttons.scss" />
+        <option value="$PROJECT_DIR$/src/views/Chat/ChatBox/ChatBoxMessages.js" />
+        <option value="$PROJECT_DIR$/src/views/Chat/ChatBox/ChatBoxMessages/ChatBoxMessagesText.js" />
+        <option value="$PROJECT_DIR$/src/views/Chat/ChatBox/ChatBoxTextArea.js" />
+        <option value="$PROJECT_DIR$/src/styles/custom/components/pageContainer.scss" />
+        <option value="$PROJECT_DIR$/src/styles/spec/screens/chat.scss" />
+        <option value="$PROJECT_DIR$/src/styles/custom/components/modals.scss" />
+        <option value="$PROJECT_DIR$/src/helpers/helper.test.js" />
+        <option value="$PROJECT_DIR$/src/helpers/helper.js" />
         <option value="$PROJECT_DIR$/src/api/webRTC_experimental.js" />
+        <option value="$PROJECT_DIR$/src/views/Chat/Sidebar/Sidebar.js" />
+        <option value="$PROJECT_DIR$/src/views/Chat/Chat.js" />
+        <option value="$PROJECT_DIR$/src/styles/spec/components/pageContainer.scss" />
+        <option value="$PROJECT_DIR$/src/styles/spec/settings/baseColors.scss" />
+        <option value="$PROJECT_DIR$/src/views/Chat/Header/Header.js" />
+        <option value="$PROJECT_DIR$/src/views/Chat/ChatBox/ChatBoxToolBar.js" />
+        <option value="$PROJECT_DIR$/src/views/Chat/Sidebar/SidebarItem.js" />
       </list>
     </option>
   </component>
@@ -244,7 +289,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -261,20 +305,7 @@
               <item name="chat" type="b2602c69:ProjectViewProjectNode" />
               <item name="chat" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="chat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="chat" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="chat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="chat" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="libs" type="462c0819:PsiDirectoryNode" />
+              <item name="styles" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="chat" type="b2602c69:ProjectViewProjectNode" />
@@ -297,10 +328,19 @@
               <item name="Chat" type="462c0819:PsiDirectoryNode" />
               <item name="ChatBox" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="chat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="chat" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="Chat" type="462c0819:PsiDirectoryNode" />
+              <item name="Header" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -341,7 +381,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Jest.application reducer">
+  <component name="RunManager" selected="Jest.should test helper.js.should test promise with timeout with different condition">
     <configuration name="application reducer" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
@@ -369,16 +409,31 @@
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="version 2 (1)" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+    <configuration name="should test helper.js.should test promise with timeout with different condition" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
       <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
       <working-dir value="$PROJECT_DIR$" />
       <envs />
       <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/src/redux/migrations/2.test.js" />
+      <test-file value="$PROJECT_DIR$/src/helpers/helper.test.js" />
       <test-names>
-        <test-name value="version 2" />
+        <test-name value="should test helper.js" />
+        <test-name value="should test promise with timeout with different condition" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="should test helper.js.should test promise with timeout" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/helpers/helper.test.js" />
+      <test-names>
+        <test-name value="should test helper.js" />
+        <test-name value="should test promise with timeout" />
       </test-names>
       <method v="2" />
     </configuration>
@@ -395,26 +450,13 @@
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="version 2" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
-      <node-interpreter value="project" />
-      <node-options value="" />
-      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
-      <working-dir value="$PROJECT_DIR$" />
-      <envs />
-      <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/src/redux/migrations.test.js" />
-      <test-names>
-        <test-name value="version 2" />
-      </test-names>
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Jest.should test helper.js.should test promise with timeout with different condition" />
+        <item itemvalue="Jest.should test helper.js.should test promise with timeout" />
         <item itemvalue="Jest.application reducer" />
         <item itemvalue="Jest.version 2 (2)" />
         <item itemvalue="Jest.application reducer.should create video mode" />
-        <item itemvalue="Jest.version 2 (1)" />
-        <item itemvalue="Jest.version 2" />
       </list>
     </recent_temporary>
   </component>
@@ -490,7 +532,12 @@
       <workItem from="1590150799604" duration="21108000" />
       <workItem from="1590211497621" duration="20702000" />
       <workItem from="1590321125740" duration="4958000" />
-      <workItem from="1590336736013" duration="8628000" />
+      <workItem from="1590336736013" duration="9270000" />
+      <workItem from="1590397696359" duration="5333000" />
+      <workItem from="1590483912661" duration="3552000" />
+      <workItem from="1590496426727" duration="2930000" />
+      <workItem from="1590581282713" duration="14203000" />
+      <workItem from="1590614040884" duration="1718000" />
     </task>
     <task id="LOCAL-00001" summary="fix lots of stuff">
       <created>1589150924855</created>
@@ -520,28 +567,17 @@
       <option name="project" value="LOCAL" />
       <updated>1590232898014</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Separate data channels, add video call">
+      <created>1590352297396</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1590352297396</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="version_2 - 2020.05.22 at 18h 20m 56s.xml">
-      <configuration name="version 2" configurationId="JavaScriptTestRunnerJest" />
-    </history-entry>
-    <history-entry file="version_2 - 2020.05.22 at 18h 21m 34s.xml">
-      <configuration name="version 2" configurationId="JavaScriptTestRunnerJest" />
-    </history-entry>
-    <history-entry file="version_2_(1) - 2020.05.22 at 18h 22m 18s.xml">
-      <configuration name="version 2 (1)" configurationId="JavaScriptTestRunnerJest" />
-    </history-entry>
-    <history-entry file="application_reducer_should_create_video_mode - 2020.05.22 at 18h 27m 19s.xml">
-      <configuration name="application reducer.should create video mode" configurationId="JavaScriptTestRunnerJest" />
-    </history-entry>
-    <history-entry file="application_reducer_should_create_video_mode - 2020.05.22 at 18h 27m 52s.xml">
-      <configuration name="application reducer.should create video mode" configurationId="JavaScriptTestRunnerJest" />
-    </history-entry>
-    <history-entry file="version_2_(2) - 2020.05.22 at 23h 16m 45s.xml">
-      <configuration name="version 2 (2)" configurationId="JavaScriptTestRunnerJest" />
-    </history-entry>
     <history-entry file="version_2_(2) - 2020.05.22 at 23h 17m 57s.xml">
       <configuration name="version 2 (2)" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
@@ -554,9 +590,27 @@
     <history-entry file="application_reducer - 2020.05.22 at 23h 28m 49s.xml">
       <configuration name="application reducer" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
+    <history-entry file="should_test_helper_js_should_test_promise_with_timeout - 2020.05.27 at 19h 39m 21s.xml">
+      <configuration name="should test helper.js.should test promise with timeout" configurationId="JavaScriptTestRunnerJest" />
+    </history-entry>
+    <history-entry file="should_test_helper_js_should_test_promise_with_timeout - 2020.05.27 at 19h 39m 47s.xml">
+      <configuration name="should test helper.js.should test promise with timeout" configurationId="JavaScriptTestRunnerJest" />
+    </history-entry>
+    <history-entry file="should_test_helper_js_should_test_promise_with_timeout - 2020.05.27 at 19h 40m 41s.xml">
+      <configuration name="should test helper.js.should test promise with timeout" configurationId="JavaScriptTestRunnerJest" />
+    </history-entry>
+    <history-entry file="should_test_helper_js_should_test_promise_with_timeout - 2020.05.27 at 19h 41m 07s.xml">
+      <configuration name="should test helper.js.should test promise with timeout" configurationId="JavaScriptTestRunnerJest" />
+    </history-entry>
+    <history-entry file="should_test_helper_js_should_test_promise_with_timeout_with_different_condition - 2020.05.27 at 19h 50m 58s.xml">
+      <configuration name="should test helper.js.should test promise with timeout with different condition" configurationId="JavaScriptTestRunnerJest" />
+    </history-entry>
+    <history-entry file="should_test_helper_js_should_test_promise_with_timeout_with_different_condition - 2020.05.27 at 19h 51m 12s.xml">
+      <configuration name="should test helper.js.should test promise with timeout with different condition" configurationId="JavaScriptTestRunnerJest" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="414253000" />
+    <option name="totallyTimeSpent" value="442631000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -616,7 +670,8 @@
     <MESSAGE value="fix lots of stuff" />
     <MESSAGE value="fix bunch of webrtc issues" />
     <MESSAGE value="Add Video call UI" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add Video call UI" />
+    <MESSAGE value="Separate data channels, add video call" />
+    <option name="LAST_COMMIT_MESSAGE" value="Separate data channels, add video call" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -625,11 +680,6 @@
           <url>file://$PROJECT_DIR$/src/redux/reducers/rooms.test.js</url>
           <line>77</line>
           <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/views/Chat/ChatBox/ChatBoxTextArea.js</url>
-          <line>49</line>
-          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -734,106 +784,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/manifest.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/Login/Login.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="748">
-          <caret line="49" column="4" selection-start-line="49" selection-start-column="4" selection-end-line="49" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/SignUp/SignUp.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="82" column="19" lean-forward="true" selection-start-line="82" selection-start-column="19" selection-end-line="82" selection-end-column="19" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Unavailable/Unavailable.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/libs/socket.io.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-column="20" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/libs/RTCPeerConnection-v1.5.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="220" column="27" selection-start-line="220" selection-start-column="27" selection-end-line="223" selection-end-column="8" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="n#!!block;n#getUserMedia#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/helpers/peerConnectionsStatus.js" />
-    <entry file="file://$PROJECT_DIR$/src/views/Chat/ChatBox/ChatBoxMessages.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1445">
-          <caret line="94" lean-forward="true" selection-start-line="94" selection-end-line="94" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/Dialogs/RoomCreate/RoomCreate.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1989">
-          <caret line="125" column="2" selection-start-line="125" selection-start-column="2" selection-end-line="125" selection-end-column="2" />
-          <folding>
-            <element signature="e#37#62#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/Chat/Sidebar/Sidebar.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" selection-start-line="4" selection-end-line="4" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/helpers/queue.test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="32" column="23" selection-start-line="32" selection-start-column="23" selection-end-line="32" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/redux/reducers/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -923,16 +873,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/helpers/helper.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="140" column="40" lean-forward="true" selection-start-line="140" selection-start-column="40" selection-end-line="140" selection-end-column="40" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/redux/actions/index.test.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="404">
@@ -974,16 +914,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/redux/reducers/rooms.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1428">
-          <caret line="99" column="13" selection-start-line="99" selection-start-column="13" selection-end-line="99" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/FormSelect/FormSelect.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -998,34 +928,6 @@
           <folding>
             <element signature="e#0#40#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/styles/spec/screens/chat.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="14" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/webRTC_helpers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="13" selection-start-column="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/Chat/ChatBox/ChatBoxTextArea.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-221">
-          <caret line="7" column="49" selection-start-line="7" selection-start-column="49" selection-end-line="7" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/Chat/Header/Header.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
         </state>
       </provider>
     </entry>
@@ -1049,50 +951,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/Chat/ChatBox/ChatBox.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="45" lean-forward="true" selection-start-line="3" selection-start-column="45" selection-end-line="3" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/Chat/VideoCall/VideoCall.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="816">
-          <caret line="48" column="36" lean-forward="true" selection-start-line="48" selection-start-column="36" selection-end-line="48" selection-end-column="36" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/Chat/ChatBox/ChatBoxToolBar.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="88" column="100" lean-forward="true" selection-start-line="88" selection-start-column="100" selection-end-line="88" selection-end-column="100" />
-          <folding>
-            <element signature="e#0#37#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/configs/constants.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="33" selection-start-line="3" selection-start-column="33" selection-end-line="3" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/Chat/Chat.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="146" selection-start-line="146" selection-end-line="146" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/views/Chat/ChatBox/ChatBoxIncomingCall.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -1105,41 +963,243 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/api/models/messageText.model.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="37" selection-start-line="4" selection-start-column="37" selection-end-line="4" selection-end-column="73" />
+        <state>
+          <caret column="41" selection-start-column="41" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/configs/constants.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="2" selection-start-line="3" selection-start-column="2" selection-end-line="3" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/redux/reducers/rooms.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1411">
+          <caret line="98" column="13" selection-start-line="98" selection-start-column="13" selection-end-line="98" selection-end-column="13" />
           <folding>
-            <element signature="e#0#47#0" expanded="true" />
+            <element signature="e#0#40#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/models/messageFile.model.js">
+    <entry file="file://$PROJECT_DIR$/src/views/Chat/VideoCall/VideoCall.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
+        <state relative-caret-position="782">
+          <caret line="48" column="36" selection-start-line="48" selection-start-column="36" selection-end-line="48" selection-end-column="36" />
           <folding>
-            <element signature="e#0#47#0" expanded="true" />
+            <element signature="e#0#25#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/libs/opentok.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2412">
+          <caret line="15957" column="56" lean-forward="true" selection-start-line="15957" selection-start-column="56" selection-end-line="15957" selection-end-column="56" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/libs/webRTC.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="315" column="11" lean-forward="true" selection-start-line="315" selection-start-column="11" selection-end-line="315" selection-end-column="11" />
+        <state relative-caret-position="3194">
+          <caret line="197" column="3" selection-start-line="197" selection-start-column="3" selection-end-line="197" selection-end-column="3" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/webRTC_experimental.js">
+    <entry file="file://$PROJECT_DIR$/src/api/webRTC_helpers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="20" column="4" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/Chat/ChatBox/ChatBox.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="21" column="21" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/styles/spec/utils/layout/helpers/border.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="986">
+          <caret line="63" column="10" selection-start-line="63" selection-start-column="4" selection-end-line="63" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/styles/custom/components/buttons.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/styles/custom/components/pageContainer.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/Chat/ChatBox/ChatBoxTextArea.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="62" column="39" lean-forward="true" selection-start-line="62" selection-start-column="39" selection-end-line="62" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/styles/spec/screens/chat.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="37" column="28" lean-forward="true" selection-start-line="37" selection-start-column="28" selection-end-line="37" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/styles/custom/components/modals.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="12" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/Chat/ChatBox/ChatBoxMessages/ChatBoxMessagesText.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" column="36" lean-forward="true" selection-start-line="25" selection-start-column="36" selection-end-line="25" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/models/messageFile.model.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="278">
+          <caret line="22" column="19" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#47#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/Chat/ChatBox/ChatBoxMessages/ChatBoxMessagesFile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="24" column="17" lean-forward="true" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/Chat/ChatBox/ChatBoxMessages.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+          <caret line="9" column="81" lean-forward="true" selection-start-line="9" selection-start-column="81" selection-end-line="9" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/webRTC_experimental.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="74">
+          <caret line="169" column="29" selection-start-line="169" selection-start-column="29" selection-end-line="169" selection-end-column="29" />
           <folding>
             <element signature="e#0#103#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/helpers/helper.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1122">
+          <caret line="66" column="34" selection-start-line="66" selection-start-column="34" selection-end-line="66" selection-end-column="34" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/Chat/Chat.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="205" column="25" lean-forward="true" selection-start-line="205" selection-start-column="25" selection-end-line="205" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/helpers/helper.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="161" column="20" selection-start-line="161" selection-start-column="6" selection-end-line="161" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/bootstrap/dist/css/bootstrap.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="3237" column="1" selection-start-line="3237" selection-start-column="1" selection-end-line="3237" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/styles/spec/settings/baseColors.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="121">
+          <caret line="80" column="10" lean-forward="true" selection-start-line="80" selection-start-column="10" selection-end-line="80" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/Chat/Header/Header.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="302">
+          <caret line="60" column="63" selection-start-line="60" selection-start-column="63" selection-end-line="60" selection-end-column="63" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/Chat/ChatBox/ChatBoxToolBar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="591">
+          <caret line="123" column="76" lean-forward="true" selection-start-line="123" selection-start-column="76" selection-end-line="123" selection-end-column="76" />
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
+            <element signature="e#5644#9143#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/Chat/Sidebar/Sidebar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="51" column="4" lean-forward="true" selection-start-line="51" selection-start-column="4" selection-end-line="52" selection-end-column="46" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/Chat/Sidebar/SidebarItem.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="311">
+          <caret line="42" column="46" selection-start-line="42" selection-start-column="46" selection-end-line="42" selection-end-column="46" />
         </state>
       </provider>
     </entry>

@@ -1,5 +1,5 @@
 /* global it expect describe */
-import { findIndexB } from './helper'
+import { findIndexB, promiseWithTimeout } from './helper'
 
 describe('should test helper.js', function () {
   it('should test binary search', function () {
@@ -46,5 +46,27 @@ describe('should test helper.js', function () {
     const result = findIndexB(compareFunction, items)
 
     expect(result).toBe(-1)
+  })
+
+  it('should test promise with timeout', function (done) {
+    const promise = new Promise((resolve, reject) => {
+      setTimeout(resolve, 1000)
+    })
+
+    promiseWithTimeout(promise, 500).promise.catch(e => {
+      expect(e).toBeTruthy()
+      done()
+    })
+  })
+
+  it('should test promise with timeout with different condition', function (done) {
+    const promise = new Promise((resolve, reject) => {
+      setTimeout(resolve, 1000)
+    })
+
+    promiseWithTimeout(promise, 2000).promise.then(() => {
+      expect('done').toBeTruthy()
+      done()
+    })
   })
 })

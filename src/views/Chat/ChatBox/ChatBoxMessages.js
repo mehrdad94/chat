@@ -7,7 +7,8 @@ import { eventManage } from '../../../helpers/helper'
 import { getMessagesFromActiveRoom } from '../../../redux/reducers/messages'
 import { getProfilesCurrentUserId, getProfiles } from '../../../redux/reducers/profiles'
 import { getRoomActiveId } from '../../../redux/reducers/rooms'
-import constants from '../../../configs/constants.json'
+import { MessagesCurrentUser, MessagesPartners } from './ChatBoxMessages/ChatBoxMessagesText'
+import { MessagesFileCurrentUser } from './ChatBoxMessages/ChatBoxMessagesFile'
 
 const cache = new CellMeasurerCache({
   fixedWidth: true
@@ -137,93 +138,9 @@ class ChatBoxMessages extends React.Component {
   }
 }
 
-function MessageUserBody (props) {
-  return (
-    <div className="layer">
-      <div className="peers fxw-nw ai-c pY-3 pX-10 bgc-white bdrs-2 lh-3/2">
-        <div className="peer-greed ord-0">
-          <span>{props.body}</span>
-        </div>
-      </div>
-
-      <div className="peers fxw-nw ai-c pY-3 pX-10 bgc-white bdrs-2 lh-3/2">
-        <div className="peer-greed ord-0 ta-r">
-          <small>{props.sentTime}</small>
-          <MessageStatus status={props.status}/>
-        </div>
-      </div>
-    </div>
-  )
-}
-
-function MessagePartnerBody (props) {
-  return (
-    <div className="layer">
-      <div className="peers fxw-nw ai-c pY-3 pX-10 bgc-white bdrs-2 lh-3/2">
-        <div className="peer-greed">
-          <span>{props.name}</span>
-        </div>
-      </div>
-      <div className="peers fxw-nw ai-c pY-3 pX-10 bgc-white bdrs-2 lh-3/2">
-        <div className="peer-greed">
-          <span className="c-blue-grey-900">{props.body}</span>
-        </div>
-        <div className="peer pL-10 ta-r">
-          <small>{props.sentTime}</small>
-        </div>
-      </div>
-    </div>
-  )
-}
-
-function MessagesCurrentUser (props) {
-  return (
-    <div className="peers fxw-nw ai-fe my-1">
-      <div className="peer ord-1 mL-20">
-        <img className="w-2r bdrs-50p"
-             width="32"
-             height="32"
-             src={props.avatar}
-             alt=""/>
-      </div>
-      <div className="peer peer-greed ord-0">
-        <div className="layers ai-fe gapY-10">
-          <MessageUserBody body={props.body} sentTime={props.sentTime} name={props.displayName} status={props.status} />
-        </div>
-      </div>
-    </div>
-  )
-}
-
-function MessagesPartners (props) {
-  return (
-    <div className="peers fxw-nw my-1">
-      <div className="peer mR-20">
-        <img className="w-2r bdrs-50p"
-             width="32"
-             height="32"
-             src={props.avatar}
-             alt=""/>
-      </div>
-      <div className="peer peer-greed">
-        <div className="layers ai-fs gapY-5">
-          <MessagePartnerBody body={props.body} sentTime={props.sentTime} name={props.displayName}/>
-        </div>
-      </div>
-    </div>
-  )
-}
-
-function MessageStatus (props) {
-  switch (props.status) {
-    case constants.MESSAGE_STATUS[0]:
-      return <small className="mL-5" title="waiting"><i className="ti-time"/></small>
-    case constants.MESSAGE_STATUS[1]:
-      return <small className="mL-5" title="sent"><i className="ti-check"/></small>
-    default:
-      return null
-  }
-}
+// function MessageTextUser () {
+//   <span className="c-blue-grey-900">{props.body}</span>
+// }
 
 const mapStateToProps = state => ({
   messages: getMessagesFromActiveRoom(state),

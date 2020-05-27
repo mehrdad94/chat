@@ -17,3 +17,15 @@ export default function messageFile (message, senderId, roomId, sentCount, name,
     roomId
   }
 }
+
+export function messageFileBeforeSend (message) {
+  return Object.assign(message, {
+    uploading: true
+  })
+}
+
+export function messageFileAfterReceive (message) {
+  return Object.assign(message, {
+    downloading: false
+  })
+}

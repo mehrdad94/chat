@@ -202,8 +202,6 @@ class Chat extends React.Component {
           </div>
 
           <div className={chatWrapperClassNames}>
-            <Header/>
-
             <main className="main-content bgc-grey-100">
               <div id="mainContent" className="h-100p">
                 <div className="full-container pl-0">

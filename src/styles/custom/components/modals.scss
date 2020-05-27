@@ -2,3 +2,13 @@
   max-height: calc(100% - 200px);
   overflow-y: auto;
 }
+.custom-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  opacity: 0.5;
+  background-color: #000;
+  z-index: 2;
+}

@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import constants from '../../../configs/constants.json'
 import { roomSelect } from '../../../redux/actions'
 import { getRooms } from '../../../redux/reducers/rooms'
+import $ from "jquery";
 
 // add BUSY, ONLINE, OFFLINE, DELETED, TYPING
 function RoomStatus(props) {
@@ -37,6 +38,9 @@ function Notification (props) {
 class SidebarItem extends React.Component {
   onItemClick = () => {
     this.props.roomSelect(this.props.room.id)
+
+    $('#chat-sidebar').toggleClass('open')
+    $('#sidebar-backdrop').toggleClass('show')
   }
 
   render() {

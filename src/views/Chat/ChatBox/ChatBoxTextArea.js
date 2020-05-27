@@ -20,6 +20,13 @@ const textAreaPlaceHolder = (connectionStatus, roomStatus) => {
 }
 
 class ChatBoxTextArea extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.sendInoutRef = React.createRef()
+    this.sendBtnRef = React.createRef()
+  }
+
   state = {
     message: ''
   }
@@ -51,6 +58,11 @@ class ChatBoxTextArea extends React.Component {
     }
   }
 
+  onTextBoxBlur = event => {
+    if (event && event.relatedTarget && event.relatedTarget.isSameNode(this.sendBtnRef.current)) {
+      this.sendInoutRef.current.focus()
+    }
+  }
   onSendClick = async () => {
     if (!this.state.message.trim()) return
     const roomId = this.props.roomsActive.id
@@ -91,13 +103,17 @@ class ChatBoxTextArea extends React.Component {
         <div className="p-20 bdT bgc-white">
           <div className="pos-r">
             <input type="text"
-                   className="form-control bdrs-10em m-0"
+                   className="form-control bdrs-10em m-0 pR-40"
+                   dir="auto"
+                   ref={this.sendInoutRef}
+                   onBlur={this.onTextBoxBlur}
                    disabled={isServerDisconnected(this.props.connectionStatus) || isDisconnected(this.props.roomsActiveStatus)}
                    value={this.state.message}
                    onChange={ event => this.handleChange('message', event) }
                    onKeyDown={this.onKeyDown}
                    placeholder={textAreaPlaceHolder(this.props.connectionStatus, this.props.roomsActiveStatus)}/>
             <button type="button"
+                    ref={this.sendBtnRef}
                     disabled={isServerDisconnected(this.props.connectionStatus) || isDisconnected(this.props.roomsActiveStatus)}
                     onClick={ this.onSendClick }
                     className="btn btn-primary bdrs-50p w-2r p-0 h-2r pos-a r-1 t-1">

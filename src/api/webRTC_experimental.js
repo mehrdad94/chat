@@ -4,6 +4,7 @@ import { queueRemove } from '../helpers/queue'
 import typingModel from './models/typing.model'
 import replyModel from './models/reply.model'
 import constants from '../configs/constants.json'
+import { eventManage, retryOperation } from '../helpers/helper'
 
 const RTCSessionDescription = window.RTCSessionDescription || window.mozRTCSessionDescription
 const RTCIceCandidate = window.RTCIceCandidate || window.mozRTCIceCandidate
@@ -79,7 +80,6 @@ export function createPeerConnection({ peerId }) {
   }
 
   peerConnection.ondatachannel = event => {
-    console.log(event)
     setChannelEvents({ channel: event.channel, peerId })
   }
 
@@ -96,40 +96,45 @@ function setChannelEvents ({ channel, peerId, onopen }) {
   const [roomId, receiverId, senderId] = extractInfoFromPeerId(peerId)
 
   channel.onmessage = async message => {
-    const data = JSON.parse(message.data)
-    const type = data.type
+    console.log(message, channel)
+    if (channel.label === dataChannelText) {
+      const data = JSON.parse(message.data)
+      const type = data.type
 
-    switch (type) {
-      case constants.MESSAGE_TYPES[0]:
-        getWebRTCListeners('onmessage')({roomId: data.roomId, userId: data.senderId, message: data})
+      switch (type) {
+        case constants.MESSAGE_TYPES[0]:
+          getWebRTCListeners('onmessage')({roomId: data.roomId, userId: data.senderId, message: data})
 
-        // // send that message to others on networks
-        // const nodeConnections = getNodeConnections(roomId, senderId)
-        // const nodeReceivers = nodeConnections.filter(id => id !== receiverId)
-        // nodeReceivers.forEach(async id => {
-        //   await sendMessage({
-        //     roomId,
-        //     receiverId: id,
-        //     senderId,
-        //     type: data.type,
-        //     message: data
-        //   })
-        // })
+          // // send that message to others on networks
+          // const nodeConnections = getNodeConnections(roomId, senderId)
+          // const nodeReceivers = nodeConnections.filter(id => id !== receiverId)
+          // nodeReceivers.forEach(async id => {
+          //   await sendMessage({
+          //     roomId,
+          //     receiverId: id,
+          //     senderId,
+          //     type: data.type,
+          //     message: data
+          //   })
+          // })
 
-        // send a reply
-        await sendMessage({ roomId, senderId, receiverId, message: { id: data.id }, type: constants.DATA_CHANNEL_MESSAGE_TYPES[1] })
-        break
-      case constants.DATA_CHANNEL_MESSAGE_TYPES[0]:
-        getWebRTCListeners('onTyping')(data)
-        break
-      case constants.DATA_CHANNEL_MESSAGE_TYPES[1]:
-        // sent message response
-        getWebRTCListeners('onMessagesReceived')({ ...data })
+          // send a reply
+          await sendMessage({ roomId, senderId, receiverId, message: { id: data.id }, type: constants.DATA_CHANNEL_MESSAGE_TYPES[1] })
+          break
+        case constants.DATA_CHANNEL_MESSAGE_TYPES[0]:
+          getWebRTCListeners('onTyping')(data)
+          break
+        case constants.DATA_CHANNEL_MESSAGE_TYPES[1]:
+          // sent message response
+          getWebRTCListeners('onMessagesReceived')({ ...data })
 
-        queueRemove({})
-        break
-      default:
-        throw new Error('unknown data type')
+          queueRemove({})
+          break
+        default:
+          throw new Error('unknown data type')
+      }
+    } else {
+      console.log(message.data)
     }
   }
 
@@ -141,12 +146,12 @@ function setChannelEvents ({ channel, peerId, onopen }) {
     if (onopen) onopen(channel)
   }
   channel.onclose = () => {
-    delete dataChannels[peerId][channel.label]
+    if (dataChannels[peerId] && dataChannels[peerId][channel.label]) delete dataChannels[peerId][channel.label]
   }
 
   channel.onerror = event => {
     if (event.target.readyState === 'closed') {
-      if (dataChannels[peerId][channel.label]) delete dataChannels[peerId][channel.label]
+      if (dataChannels[peerId] && dataChannels[peerId][channel.label]) delete dataChannels[peerId][channel.label]
     }
     console.error('WebRTC DataChannel error', event)
   }
@@ -167,7 +172,7 @@ export function closeAPeer (peerId) {
   delete peerConnectionDoubleOfferCreate[peerId]
 }
 
-export function createDataChannel (peerId, channelName = 'sctp-channel') {
+export function createDataChannel (peerId, channelName = dataChannelText) {
   if (!dataChannels[peerId]) dataChannels[peerId] = {}
   if (!peerConnectionDoubleChannelCreate[peerId]) peerConnectionDoubleChannelCreate[peerId] = {}
 
@@ -183,9 +188,16 @@ export function createDataChannel (peerId, channelName = 'sctp-channel') {
     } else if (!peerConnectionDoubleChannelCreate[peerId][channelName]) {
       peerConnectionDoubleChannelCreate[peerId][channelName] = true
 
-      dataChannels[peerId][channelName] = peerConnections[peerId].createDataChannel(channelName, {})
+      dataChannels[peerId][dataChannelText] = peerConnections[peerId].createDataChannel(dataChannelText, {})
+      dataChannels[peerId][dataChannelFile] = peerConnections[peerId].createDataChannel(dataChannelFile, {})
 
-      setChannelEvents({ channel: dataChannels[peerId][channelName], peerId, onopen: (channel) => { resolve (channel) } })
+      eventManage.publish('ON_DATA_CHANNEL_CONNECTING', extractInfoFromPeerId(peerId)[0])
+
+      setChannelEvents({ channel: dataChannels[peerId][dataChannelText], peerId, onopen: (channel) => {
+          resolve (channel)
+          eventManage.publish('ON_DATA_CHANNEL_CONNECTED', extractInfoFromPeerId(peerId)[0])
+        } })
+      setChannelEvents({ channel: dataChannels[peerId][dataChannelFile], peerId }) // TODO check your assumption
     }
   })
 }
@@ -244,21 +256,65 @@ export async function addIceCandidate ({roomId, receiverId, senderId, candidate}
   })
 }
 
-export async function sendMessage ({ roomId, receiverId, senderId, ownerId = senderId, message, type = constants.MESSAGE_TYPES[0] }) {
+export async function sendMessage ({
+  roomId,
+  receiverId,
+  senderId,
+  ownerId = senderId,
+  message,
+  file,
+  type = constants.MESSAGE_TYPES[0]
+}) {
   const peerId = `${roomId}/${receiverId}/${senderId}`
 
   if (!peerConnections[peerId]) createPeerConnection({ peerId })
 
   createDataChannel(peerId, dataChannelText).then( channel => {
     if (type === constants.MESSAGE_TYPES[0]) channel.send(JSON.stringify(message))
-    else if (type === constants.DATA_CHANNEL_MESSAGE_TYPES[0]) channel.send(JSON.stringify(typingModel(roomId, senderId, ownerId)))
+    else if (type === constants.MESSAGE_TYPES[1]) {
+      channel.send(JSON.stringify(message))
+      sendFile({ peerId, file })
+    } else if (type === constants.DATA_CHANNEL_MESSAGE_TYPES[0]) channel.send(JSON.stringify(typingModel(roomId, senderId, ownerId)))
     else if (type === constants.DATA_CHANNEL_MESSAGE_TYPES[1]) channel.send(JSON.stringify(replyModel(roomId, message.id)))
+  }).catch(e => {
+    console.error(e)
   })
 
   if (peerConnections[peerId].iceConnectionState === 'new' && !peerConnectionDoubleOfferCreate[peerId]) {
     peerConnectionDoubleOfferCreate[peerId] = true
     await createOffer({ peerId })
   }
+}
+
+export function sendFile ({ peerId, file }) {
+  createDataChannel(peerId, dataChannelFile).then(channel => {
+    const chunkSize = 16384
+    let offset = 0
+    const fileReader = new FileReader()
+
+    function readSlice (o) {
+      const slice = file.slice(offset, o + chunkSize)
+
+      fileReader.readAsArrayBuffer(slice)
+    }
+
+    if (file instanceof File) {
+      // fileReader.addEventListener('error', error => console.error('Error reading file:', error));
+      // fileReader.addEventListener('abort', event => console.log('File reading aborted:', event));
+
+      fileReader.addEventListener('load', e => {
+        channel.send(e.target.result)
+
+        offset += e.target.result.byteLength
+
+        if (offset < file.size) {
+          readSlice(offset)
+        }
+      })
+
+      readSlice(0)
+    }
+  })
 }
 
 export async function call ({ roomId, receiverId, senderId, type = constants.STREAM_TYPES[2] }) {

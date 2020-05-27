@@ -140,3 +140,35 @@ export const typingSentHelper = (roomId, userId, clb) => {
 
 export const isDisconnected = status => status === constants.ROOM_STATUS[0]
 export const isServerDisconnected = status => status === constants.CONNECTION_STATUS[0]
+
+export const promiseWithTimeout = (promise, timeout) => {
+  let timeoutId
+  const timeoutPromise = new Promise((_, reject) => {
+    timeoutId = setTimeout(() => {
+      return reject('Request timed out')
+    }, timeout)
+  })
+  return {
+    promise: Promise.race([promise, timeoutPromise]),
+    done() {
+      clearTimeout(timeoutId)
+    }
+  }
+}
+
+
+const wait = ms => new Promise(r => setTimeout(r, ms));
+
+const retryOperation = (operation, delay, times) => new Promise((resolve, reject) => {
+  return operation()
+    .then(resolve)
+    .catch((reason) => {
+      if (times - 1 > 0) {
+        return wait(delay)
+          .then(retryOperation.bind(null, operation, delay, times - 1))
+          .then(resolve)
+          .catch(reject);
+      }
+      return reject(reason);
+    });
+});

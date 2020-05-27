@@ -47,10 +47,10 @@
 
 .full-container {
   left: $offscreen-size;
-  min-height: calc(100% - #{$header-height});
+  min-height: 100%;
   position: absolute;
   right: 0;
-  top: $header-height;
+  top: 0;
   transition: all 0.2s ease;
 
   @include between($breakpoint-md, $breakpoint-xl) {
