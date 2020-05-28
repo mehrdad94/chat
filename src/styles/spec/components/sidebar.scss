@@ -18,6 +18,7 @@
   overflow: hidden;
   position: fixed;
   top: 0;
+  left: 0;
   transition: all 0.2s ease;
   width: $offscreen-size;
   z-index: 1000;
@@ -25,9 +26,11 @@
   ul {
     list-style-type: none;
   }
-
+  & + .custom-backdrop {
+    width: 0;
+  }
   @include between($breakpoint-md, $breakpoint-xl) {
-    width: $collapsed-size;
+    //width: $collapsed-size;
 
     .sidebar-inner {
       .sidebar-logo {
@@ -106,8 +109,8 @@
   }
 
   @include to($breakpoint-md) {
-    left: -$offscreen-size;
-    width: calc(#{$offscreen-size} - 30px);
+    left: -$offscreen-size!important;
+    width: calc(#{$offscreen-size});
   }
 }
 
@@ -442,7 +445,10 @@
     }
 
     @include to($breakpoint-md) {
-      left: 0;
+      left: 0!important;
+      & + .custom-backdrop {
+        width: 100%;
+      }
     }
   }
 }

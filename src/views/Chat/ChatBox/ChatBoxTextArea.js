@@ -100,7 +100,7 @@ class ChatBoxTextArea extends React.Component {
   render () {
     return (
       <div className="layer w-100">
-        <div className="p-20 bdT bgc-white">
+        <div className="pX-20 pY-10 bdT bgc-white">
           <div className="pos-r">
             <input type="text"
                    className="form-control bdrs-10em m-0 pR-40"

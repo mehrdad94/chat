@@ -53,10 +53,10 @@
   top: 0;
   transition: all 0.2s ease;
 
-  @include between($breakpoint-md, $breakpoint-xl) {
-    left: 0;
-    padding-left: $collapsed-size;
-  }
+  //@include between($breakpoint-md, $breakpoint-xl) {
+  //  left: 0;
+  //  padding-left: $collapsed-size;
+  //}
 
   @include to($breakpoint-md) {
     left: 0;

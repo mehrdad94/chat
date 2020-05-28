@@ -49,14 +49,14 @@ class Sidebar extends React.Component {
   }
 
   onBackdropClick = () => {
-    $('#chat-sidebar').toggleClass('open')
+    $('body').toggleClass('is-collapsed')
     $('#sidebar-backdrop').toggleClass('show')
   }
 
   render() {
     return (
       <Fragment>
-        <div className="peer bdR zi-3 bgc-white" id="chat-sidebar">
+        <div className="peer bdR bgc-white sidebar" id="chat-sidebar">
           <div className="layers h-100">
             <Header/>
             <div className="bdB layer w-100 pos-r bgc-white">

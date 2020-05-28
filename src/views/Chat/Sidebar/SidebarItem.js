@@ -39,7 +39,7 @@ class SidebarItem extends React.Component {
   onItemClick = () => {
     this.props.roomSelect(this.props.room.id)
 
-    $('#chat-sidebar').toggleClass('open')
+    $('body').toggleClass('is-collapsed')
     $('#sidebar-backdrop').toggleClass('show')
   }
 

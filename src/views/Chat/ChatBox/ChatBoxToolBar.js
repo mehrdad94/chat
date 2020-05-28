@@ -87,7 +87,7 @@ class ChatBoxToolBar extends React.Component {
     // console.log(event.target.files)
   }
   onChatSidebarToggleClick = () => {
-    $('#chat-sidebar').toggleClass('open')
+    $('body').toggleClass('is-collapsed')
     $('#sidebar-backdrop').toggleClass('show')
   }
 
@@ -116,7 +116,7 @@ class ChatBoxToolBar extends React.Component {
         <ChatBoxIncomingCall/>
         {
             <div className="layer w-100 zi-2">
-              <div className="peers fxw-nw jc-sb ai-c pY-20 pX-30 bgc-white">
+              <div className="peers fxw-nw jc-sb ai-c pY-10 pX-20 bgc-white">
                 <div className="peers ai-c">
                   <div className="peer">
                     <a id="chat-sidebar-toggle"

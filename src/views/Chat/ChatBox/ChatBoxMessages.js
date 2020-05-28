@@ -8,7 +8,6 @@ import { getMessagesFromActiveRoom } from '../../../redux/reducers/messages'
 import { getProfilesCurrentUserId, getProfiles } from '../../../redux/reducers/profiles'
 import { getRoomActiveId } from '../../../redux/reducers/rooms'
 import { MessagesCurrentUser, MessagesPartners } from './ChatBoxMessages/ChatBoxMessagesText'
-import { MessagesFileCurrentUser } from './ChatBoxMessages/ChatBoxMessagesFile'
 
 const cache = new CellMeasurerCache({
   fixedWidth: true
@@ -20,6 +19,7 @@ class ChatBoxMessages extends React.Component {
   constructor (props) {
     super(props)
     this.virtualizedRef = React.createRef()
+    this.messageRef = React.createRef()
   }
 
   state = {
@@ -84,11 +84,17 @@ class ChatBoxMessages extends React.Component {
 
     eventManage.subscribe('USER_SENT_NEW_MESSAGE', () => {
       this.scrollDown()
+
+      console.log(this.virtualizedRef)
     })
 
     eventManage.subscribe('ON_MESSAGE_STATUS_CHANGE', () => {
       setTimeout(() => {
+        let scrollAfterForceUpdate = this.state.isScrollDown
+
         this.virtualizedRef.current.forceUpdateGrid()
+
+        if (scrollAfterForceUpdate) this.scrollDown()
       })
     })
 
@@ -110,7 +116,7 @@ class ChatBoxMessages extends React.Component {
 
   render () {
     return (
-      <div className="layer w-100 fxg-1 bgc-grey-200">
+      <div className="layer w-100 fxg-1 h-100 bgc-grey-200">
         <AutoSizer>
           {({height, width}) => (
             <List className="p-20 scrollable pos-r"
